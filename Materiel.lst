@@ -1,0 +1,696 @@
+/* Création de matériels en plastique  */
+insert into Materiel values (1, 'plastique');
+insert into Materiel values (2, 'plastique');
+insert into Materiel values (3, 'plastique');
+insert into Materiel values (4, 'plastique');
+insert into Materiel values (5, 'plastique');
+insert into Materiel values (6, 'plastique');
+insert into Materiel values (7, 'plastique');
+insert into Materiel values (8, 'plastique');
+insert into Materiel values (9, 'plastique');
+insert into Materiel values (10, 'plastique');
+insert into Materiel values (11, 'plastique');
+insert into Materiel values (12, 'plastique');
+insert into Materiel values (13, 'plastique');
+insert into Materiel values (14, 'plastique');
+insert into Materiel values (15, 'plastique');
+insert into Materiel values (16, 'plastique');
+insert into Materiel values (17, 'plastique');
+insert into Materiel values (18, 'plastique');
+insert into Materiel values (19, 'plastique');
+insert into Materiel values (20, 'plastique');
+
+/* Création de matériels en bois  */
+insert into Materiel values (21, 'bois');
+insert into Materiel values (22, 'bois');
+insert into Materiel values (23, 'bois');
+insert into Materiel values (24, 'bois');
+insert into Materiel values (25, 'bois');
+insert into Materiel values (26, 'bois');
+insert into Materiel values (27, 'bois');
+insert into Materiel values (28, 'bois');
+insert into Materiel values (29, 'bois');
+insert into Materiel values (30, 'bois');
+insert into Materiel values (31, 'bois');
+insert into Materiel values (32, 'bois');
+insert into Materiel values (33, 'bois');
+insert into Materiel values (34, 'bois');
+insert into Materiel values (35, 'bois');
+insert into Materiel values (36, 'bois');
+insert into Materiel values (37, 'bois');
+insert into Materiel values (38, 'bois');
+insert into Materiel values (39, 'bois');
+insert into Materiel values (40, 'bois');
+
+/* Création de matériels en bambou  */
+insert into Materiel values (41, 'bambou');
+insert into Materiel values (42, 'bambou');
+insert into Materiel values (43, 'bambou');
+insert into Materiel values (44, 'bambou');
+insert into Materiel values (45, 'bambou');
+insert into Materiel values (46, 'bambou');
+insert into Materiel values (47, 'bambou');
+insert into Materiel values (48, 'bambou');
+insert into Materiel values (49, 'bambou');
+insert into Materiel values (50, 'bambou');
+insert into Materiel values (51, 'bambou');
+insert into Materiel values (52, 'bambou');
+insert into Materiel values (53, 'bambou');
+insert into Materiel values (54, 'bambou');
+insert into Materiel values (55, 'bambou');
+insert into Materiel values (56, 'bambou');
+insert into Materiel values (57, 'bambou');
+insert into Materiel values (58, 'bambou');
+insert into Materiel values (59, 'bambou');
+insert into Materiel values (60, 'bambou');
+
+/* Création de matériels en ardoise  */
+insert into Materiel values (61, 'ardoise');
+insert into Materiel values (62, 'ardoise');
+insert into Materiel values (63, 'ardoise');
+insert into Materiel values (64, 'ardoise');
+insert into Materiel values (65, 'ardoise');
+insert into Materiel values (66, 'ardoise');
+insert into Materiel values (67, 'ardoise');
+insert into Materiel values (68, 'ardoise');
+insert into Materiel values (69, 'ardoise');
+insert into Materiel values (70, 'ardoise');
+insert into Materiel values (71, 'ardoise');
+insert into Materiel values (72, 'ardoise');
+insert into Materiel values (73, 'ardoise');
+insert into Materiel values (74, 'ardoise');
+insert into Materiel values (75, 'ardoise');
+insert into Materiel values (76, 'ardoise');
+insert into Materiel values (77, 'ardoise');
+insert into Materiel values (78, 'ardoise');
+insert into Materiel values (79, 'ardoise');
+insert into Materiel values (80, 'ardoise');
+
+
+/* Création de matériels en torchis  */
+insert into Materiel values (81, 'torchis');
+insert into Materiel values (82, 'torchis');
+insert into Materiel values (83, 'torchis');
+insert into Materiel values (84, 'torchis');
+insert into Materiel values (85, 'torchis');
+insert into Materiel values (86, 'torchis');
+insert into Materiel values (87, 'torchis');
+insert into Materiel values (88, 'torchis');
+insert into Materiel values (89, 'torchis');
+insert into Materiel values (90, 'torchis');
+insert into Materiel values (91, 'torchis');
+insert into Materiel values (92, 'torchis');
+insert into Materiel values (93, 'torchis');
+insert into Materiel values (94, 'torchis');
+insert into Materiel values (95, 'torchis');
+insert into Materiel values (96, 'torchis');
+insert into Materiel values (97, 'torchis');
+insert into Materiel values (98, 'torchis');
+insert into Materiel values (99, 'torchis');
+insert into Materiel values (100, 'torchis');
+
+
+
+
+
+
+
+
+/* Création de matériels en terre cuite  */
+insert into Materiel values (101, 'terre cuite');
+insert into Materiel values (102, 'terre cuite');
+insert into Materiel values (103, 'terre cuite');
+insert into Materiel values (104, 'terre cuite');
+insert into Materiel values (105, 'terre cuite');
+insert into Materiel values (106, 'terre cuite');
+insert into Materiel values (107, 'terre cuite');
+insert into Materiel values (108, 'terre cuite');
+insert into Materiel values (109, 'terre cuite');
+insert into Materiel values (110, 'terre cuite');
+insert into Materiel values (111, 'terre cuite');
+insert into Materiel values (112, 'terre cuite');
+insert into Materiel values (113, 'terre cuite');
+insert into Materiel values (114, 'terre cuite');
+insert into Materiel values (115, 'terre cuite');
+insert into Materiel values (116, 'terre cuite');
+insert into Materiel values (117, 'terre cuite');
+insert into Materiel values (118, 'terre cuite');
+insert into Materiel values (119, 'terre cuite');
+insert into Materiel values (120, 'terre cuite');
+
+/* Création de matériels en plastique  */
+insert into Materiel values (121, 'plastique');
+insert into Materiel values (122, 'plastique');
+insert into Materiel values (123, 'plastique');
+insert into Materiel values (124, 'plastique');
+insert into Materiel values (125, 'plastique');
+insert into Materiel values (126, 'plastique');
+insert into Materiel values (127, 'plastique');
+insert into Materiel values (128, 'plastique');
+insert into Materiel values (129, 'plastique');
+insert into Materiel values (130, 'plastique');
+insert into Materiel values (131, 'plastique');
+insert into Materiel values (132, 'plastique');
+insert into Materiel values (133, 'plastique');
+insert into Materiel values (134, 'plastique');
+insert into Materiel values (135, 'plastique');
+insert into Materiel values (136, 'plastique');
+insert into Materiel values (137, 'plastique');
+insert into Materiel values (138, 'plastique');
+insert into Materiel values (139, 'plastique');
+insert into Materiel values (140, 'plastique');
+
+/* Création de matériels en torchis  */
+insert into Materiel values (141, 'torchis');
+insert into Materiel values (142, 'torchis');
+insert into Materiel values (143, 'torchis');
+insert into Materiel values (144, 'torchis');
+insert into Materiel values (145, 'torchis');
+insert into Materiel values (146, 'torchis');
+insert into Materiel values (147, 'torchis');
+insert into Materiel values (148, 'torchis');
+insert into Materiel values (149, 'torchis');
+insert into Materiel values (150, 'torchis');
+insert into Materiel values (151, 'torchis');
+insert into Materiel values (152, 'torchis');
+insert into Materiel values (153, 'torchis');
+insert into Materiel values (154, 'torchis');
+insert into Materiel values (155, 'torchis');
+insert into Materiel values (156, 'torchis');
+insert into Materiel values (157, 'torchis');
+insert into Materiel values (158, 'torchis');
+insert into Materiel values (159, 'torchis');
+insert into Materiel values (160, 'torchis');
+
+/* Création de matériels en bambou  */
+insert into Materiel values (161, 'bambou');
+insert into Materiel values (162, 'bambou');
+insert into Materiel values (163, 'bambou');
+insert into Materiel values (164, 'bambou');
+insert into Materiel values (165, 'bambou');
+insert into Materiel values (166, 'bambou');
+insert into Materiel values (167, 'bambou');
+insert into Materiel values (168, 'bambou');
+insert into Materiel values (169, 'bambou');
+insert into Materiel values (170, 'bambou');
+insert into Materiel values (171, 'bambou');
+insert into Materiel values (172, 'bambou');
+insert into Materiel values (173, 'bambou');
+insert into Materiel values (174, 'bambou');
+insert into Materiel values (175, 'bambou');
+insert into Materiel values (176, 'bambou');
+insert into Materiel values (177, 'bambou');
+insert into Materiel values (178, 'bambou');
+insert into Materiel values (179, 'bambou');
+insert into Materiel values (180, 'bambou');
+
+/* Création de matériels en plastique  */
+insert into Materiel values (181, 'bois');
+insert into Materiel values (182, 'bois');
+insert into Materiel values (183, 'bois');
+insert into Materiel values (184, 'bois');
+insert into Materiel values (185, 'bois');
+insert into Materiel values (186, 'bois');
+insert into Materiel values (187, 'bois');
+insert into Materiel values (188, 'bois');
+insert into Materiel values (189, 'bois');
+insert into Materiel values (190, 'bois');
+insert into Materiel values (191, 'bois');
+insert into Materiel values (192, 'bois');
+insert into Materiel values (193, 'bois');
+insert into Materiel values (194, 'bois');
+insert into Materiel values (195, 'bois');
+insert into Materiel values (196, 'bois');
+insert into Materiel values (197, 'bois');
+insert into Materiel values (198, 'bois');
+insert into Materiel values (199, 'bois');
+insert into Materiel values (200, 'bois');
+
+
+
+
+
+
+
+
+
+/* Création de matériels en plastique  */
+insert into Materiel values (201, 'plastique');
+insert into Materiel values (202, 'plastique');
+insert into Materiel values (203, 'plastique');
+insert into Materiel values (204, 'plastique');
+insert into Materiel values (205, 'plastique');
+insert into Materiel values (206, 'plastique');
+insert into Materiel values (207, 'plastique');
+insert into Materiel values (208, 'plastique');
+insert into Materiel values (209, 'plastique');
+insert into Materiel values (210, 'plastique');
+insert into Materiel values (211, 'plastique');
+insert into Materiel values (212, 'plastique');
+insert into Materiel values (213, 'plastique');
+insert into Materiel values (214, 'plastique');
+insert into Materiel values (215, 'plastique');
+insert into Materiel values (216, 'plastique');
+insert into Materiel values (217, 'plastique');
+insert into Materiel values (218, 'plastique');
+insert into Materiel values (219, 'plastique');
+insert into Materiel values (220, 'plastique');
+
+
+/* Création de matériels en bois  */
+insert into Materiel values (221, 'bois');
+insert into Materiel values (222, 'bois');
+insert into Materiel values (223, 'bois');
+insert into Materiel values (224, 'bois');
+insert into Materiel values (225, 'bois');
+insert into Materiel values (226, 'bois');
+insert into Materiel values (227, 'bois');
+insert into Materiel values (228, 'bois');
+insert into Materiel values (229, 'bois');
+insert into Materiel values (230, 'bois');
+insert into Materiel values (231, 'bois');
+insert into Materiel values (232, 'bois');
+insert into Materiel values (233, 'bois');
+insert into Materiel values (234, 'bois');
+insert into Materiel values (235, 'bois');
+insert into Materiel values (236, 'bois');
+insert into Materiel values (237, 'bois');
+insert into Materiel values (238, 'bois');
+insert into Materiel values (239, 'bois');
+insert into Materiel values (240, 'bois');
+insert into Materiel values (241, 'bois');
+insert into Materiel values (242, 'bois');
+insert into Materiel values (243, 'bois');
+insert into Materiel values (244, 'bois');
+insert into Materiel values (245, 'bois');
+insert into Materiel values (246, 'bois');
+insert into Materiel values (247, 'bois');
+insert into Materiel values (248, 'bois');
+insert into Materiel values (249, 'bois');
+insert into Materiel values (250, 'bois');
+
+/* Création de matériels en bambou  */
+insert into Materiel values (251, 'bambou');
+insert into Materiel values (252, 'bambou');
+insert into Materiel values (253, 'bambou');
+insert into Materiel values (254, 'bambou');
+insert into Materiel values (255, 'bambou');
+insert into Materiel values (256, 'bambou');
+insert into Materiel values (257, 'bambou');
+insert into Materiel values (258, 'bambou');
+insert into Materiel values (259, 'bambou');
+insert into Materiel values (260, 'bambou');
+insert into Materiel values (261, 'bambou');
+insert into Materiel values (262, 'bambou');
+insert into Materiel values (263, 'bambou');
+insert into Materiel values (264, 'bambou');
+insert into Materiel values (265, 'bambou');
+insert into Materiel values (266, 'bambou');
+insert into Materiel values (267, 'bambou');
+insert into Materiel values (268, 'bambou');
+insert into Materiel values (269, 'bambou');
+insert into Materiel values (270, 'bambou');
+insert into Materiel values (271, 'bambou');
+insert into Materiel values (272, 'bambou');
+insert into Materiel values (273, 'bambou');
+insert into Materiel values (274, 'bambou');
+insert into Materiel values (275, 'bambou');
+insert into Materiel values (276, 'bambou');
+insert into Materiel values (277, 'bambou');
+insert into Materiel values (278, 'bambou');
+insert into Materiel values (279, 'bambou');
+insert into Materiel values (280, 'bambou');
+insert into Materiel values (281, 'bambou');
+insert into Materiel values (282, 'bambou');
+insert into Materiel values (283, 'bambou');
+insert into Materiel values (284, 'bambou');
+insert into Materiel values (285, 'bambou');
+insert into Materiel values (286, 'bambou');
+insert into Materiel values (287, 'bambou');
+insert into Materiel values (288, 'bambou');
+insert into Materiel values (289, 'bambou');
+insert into Materiel values (290, 'bambou');
+
+/* Création de matériels en terre cuite  */
+insert into Materiel values (291, 'terre cuite');
+insert into Materiel values (292, 'terre cuite');
+insert into Materiel values (293, 'terre cuite');
+insert into Materiel values (294, 'terre cuite');
+insert into Materiel values (295, 'terre cuite');
+insert into Materiel values (296, 'terre cuite');
+insert into Materiel values (297, 'terre cuite');
+insert into Materiel values (298, 'terre cuite');
+insert into Materiel values (299, 'terre cuite');
+insert into Materiel values (300, 'terre cuite');
+insert into Materiel values (301, 'terre cuite');
+insert into Materiel values (302, 'terre cuite');
+insert into Materiel values (303, 'terre cuite');
+insert into Materiel values (304, 'terre cuite');
+insert into Materiel values (305, 'terre cuite');
+insert into Materiel values (306, 'terre cuite');
+insert into Materiel values (307, 'terre cuite');
+insert into Materiel values (308, 'terre cuite');
+insert into Materiel values (309, 'terre cuite');
+insert into Materiel values (310, 'terre cuite');
+insert into Materiel values (311, 'terre cuite');
+
+/* Création de matériels en ardoise  */
+insert into Materiel values (312, 'ardoise');
+insert into Materiel values (313, 'ardoise');
+insert into Materiel values (314, 'ardoise');
+insert into Materiel values (315, 'ardoise');
+insert into Materiel values (316, 'ardoise');
+insert into Materiel values (317, 'ardoise');
+insert into Materiel values (318, 'ardoise');
+insert into Materiel values (319, 'ardoise');
+insert into Materiel values (320, 'ardoise');
+insert into Materiel values (321, 'ardoise');
+insert into Materiel values (322, 'ardoise');
+insert into Materiel values (323, 'ardoise');
+insert into Materiel values (324, 'ardoise');
+insert into Materiel values (325, 'ardoise');
+insert into Materiel values (326, 'ardoise');
+insert into Materiel values (327, 'ardoise');
+insert into Materiel values (328, 'ardoise');
+insert into Materiel values (329, 'ardoise');
+insert into Materiel values (330, 'ardoise');
+insert into Materiel values (331, 'ardoise');
+insert into Materiel values (332, 'ardoise');
+
+
+insert into Materiel values (333, 'torchis');
+insert into Materiel values (334, 'torchis');
+insert into Materiel values (335, 'torchis');
+insert into Materiel values (336, 'torchis');
+insert into Materiel values (337, 'torchis');
+insert into Materiel values (338, 'torchis');
+insert into Materiel values (339, 'torchis');
+insert into Materiel values (340, 'torchis');
+insert into Materiel values (341, 'torchis');
+insert into Materiel values (342, 'torchis');
+insert into Materiel values (343, 'torchis');
+insert into Materiel values (345, 'torchis');
+insert into Materiel values (346, 'torchis');
+insert into Materiel values (347, 'torchis');
+insert into Materiel values (348, 'torchis');
+insert into Materiel values (349, 'torchis');
+insert into Materiel values (350, 'torchis');
+insert into Materiel values (351, 'torchis');
+insert into Materiel values (352, 'torchis');
+insert into Materiel values (353, 'torchis');
+
+/* Création des 20 hausses de 101 à 120  */
+insert into Hausse values ('Blue', 101);
+insert into Hausse values ('Red', 102);
+insert into Hausse values ('Orange', 103);
+insert into Hausse values ('Yellow', 104);
+insert into Hausse values ('Purple', 105);
+insert into Hausse values ('Green', 106);
+insert into Hausse values ('Red', 107);
+insert into Hausse values ('Blue', 108);
+insert into Hausse values ('Pink', 109);
+insert into Hausse values ('Black', 110);
+insert into Hausse values ('White', 111);
+insert into Hausse values ('Gray', 112);
+insert into Hausse values ('Orange', 113);
+insert into Hausse values ('Red', 114);
+insert into Hausse values ('Blue', 115);
+insert into Hausse values ('White', 116);
+insert into Hausse values ('Green', 117);
+insert into Hausse values ('Cyan', 118);
+insert into Hausse values ('Purple', 119);
+insert into Hausse values ('Orange', 120);
+
+insert into Plancher values (312);
+insert into Plancher values (313);
+insert into Plancher values (314);
+insert into Plancher values (315);
+insert into Plancher values (316);
+
+insert into Toit values (333);
+insert into Toit values (334);
+insert into Toit values (335);
+insert into Toit values (336);
+insert into Toit values (337);
+
+insert into Couvercle values (301);
+insert into Couvercle values (302);
+insert into Couvercle values (303);
+insert into Couvercle values (304);
+insert into Couvercle values (305);
+
+
+
+/* == Création de 100 cadres dans des hausses du CORPS numérotées de 101 à 110 == */
+
+/* Création de 20 cadres CORPS en bambou dans les hausses 101 et 102 */
+insert into Cadre values ('moyen', 0,  'cire', 41, 101);
+insert into Cadre values ('mauvais', 100,  'miel', 42, 101);
+insert into Cadre values ('bon', 0,  'pollen', 43, 101);
+insert into Cadre values ('mauvais', 0,  'pollen', 44, 101);
+insert into Cadre values ('bon', 0,  'construit', 45, 101);
+insert into Cadre values ('bon', 0,  'couvain', 46, 101);
+insert into Cadre values ('bon', 350,  'miel', 47, 101);
+insert into Cadre values ('bon', 0,  'couvain', 48, 101);
+insert into Cadre values ('moyen', 0,  'construit', 49, 101);
+insert into Cadre values ('mauvais', 625, 'miel', 50, 101);
+
+insert into Cadre values ('moyen', 0,  'pollen', 51, 102);
+insert into Cadre values ('moyen', 0,  'cire', 52, 102);
+insert into Cadre values ('bon', 0,  'pollen', 53, 102);
+insert into Cadre values ('moyen', 0,  'couvain', 54, 102);
+insert into Cadre values ('mauvais', 255,  'miel', 55, 102);
+insert into Cadre values ('bon', 0,  'construit', 56, 102);
+insert into Cadre values ('bon', 1000,  'miel', 57, 102);
+insert into Cadre values ('bon',850,  'miel', 58, 102);
+insert into Cadre values ('mauvais', 755,  'miel', 59, 102);
+insert into Cadre values ('moyen', 0,  'pollen', 60, 102);
+
+
+/* Création de 20 cadres CORPS en bois dans les hausses 103 et 104 */
+
+insert into Cadre values ( 'moyen', 0, 'cire', 21, 103);
+insert into Cadre values ( 'bon', 0, 'couvain', 22, 103);
+insert into Cadre values ( 'mauvais', 855, 'miel', 23, 103);
+insert into Cadre values ( 'bon', 626, 'miel', 24, 103);
+insert into Cadre values ( 'bon', 0, 'pollen', 25, 103);
+insert into Cadre values ( 'bon', 233, 'miel', 26, 103);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 27, 103);
+insert into Cadre values ( 'moyen', 675, 'miel', 28, 103);
+insert into Cadre values ( 'moyen', 0, 'construit', 29, 103);
+insert into Cadre values ( 'moyen', 333, 'miel', 30, 103);
+
+insert into Cadre values ( 'bon', 0, 'construit', 31, 104);
+insert into Cadre values ( 'bon', 0, 'couvain', 32, 104);
+insert into Cadre values ( 'mauvais', 800, 'miel', 33, 104);
+insert into Cadre values ( 'bon', 0, 'cire', 34, 104);
+insert into Cadre values ( 'moyen', 526, 'miel', 35, 104);
+insert into Cadre values ( 'bon', 599, 'miel', 36, 104);
+insert into Cadre values ( 'mauvais', 896, 'miel', 37, 104);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 38, 104);
+insert into Cadre values ( 'moyen', 0, 'cire', 39, 104);
+insert into Cadre values ( 'bon', 0, 'pollen', 40, 104);
+
+/* Création de 20 cadres CORPS en plastique dans les hausses 105 et 106 */
+
+insert into Cadre values ( 'moyen', 0, 'cire', 1, 105);
+insert into Cadre values ( 'bon', 0, 'couvain', 2, 105);
+insert into Cadre values ( 'mauvais',111, 'miel', 3, 105);
+insert into Cadre values ( 'bon', 1000, 'miel', 4, 105);
+insert into Cadre values ( 'bon', 1000, 'pollen', 5, 105);
+insert into Cadre values ( 'bon', 1000, 'miel', 6, 105);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 7, 105);
+insert into Cadre values ( 'moyen', 562, 'miel', 8, 105);
+insert into Cadre values ( 'moyen', 0, 'construit',9, 105);
+insert into Cadre values ( 'moyen', 560, 'miel', 10, 105);
+
+insert into Cadre values ( 'bon', 0, 'construit', 11, 106);
+insert into Cadre values ( 'bon', 0, 'couvain', 12, 106);
+insert into Cadre values ( 'mauvais', 45, 'miel', 13, 106);
+insert into Cadre values ( 'bon', 0, 'cire', 14, 106);
+insert into Cadre values ( 'moyen', 420, 'miel', 15, 106);
+insert into Cadre values ( 'bon', 789, 'miel', 16, 106);
+insert into Cadre values ( 'mauvais', 123, 'miel', 17, 106);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 18, 106);
+insert into Cadre values ( 'moyen', 0, 'cire', 19, 106);
+insert into Cadre values ( 'bon', 0, 'pollen', 20, 106);
+
+/* Création de 20 cadres CORPS en ardoise dans les hausses 107 et 108 */
+
+insert into Cadre values ( 'moyen', 0, 'cire', 61, 107);
+insert into Cadre values ( 'bon', 0, 'couvain', 62, 107);
+insert into Cadre values ( 'mauvais',123, 'miel', 63, 107);
+insert into Cadre values ( 'bon', 150, 'miel', 64, 107);
+insert into Cadre values ( 'moyen', 0, 'pollen', 65, 107);
+insert into Cadre values ( 'bon', 225, 'miel', 66, 107);
+insert into Cadre values ( 'moyen', 0, 'couvain', 67, 107);
+insert into Cadre values ( 'bon', 789, 'miel', 68, 107);
+insert into Cadre values ( 'bon', 0, 'construit',69, 107);
+insert into Cadre values ( 'bon',0, 'construit', 70, 107);
+
+insert into Cadre values ( 'bon', 0, 'construit', 71, 108);
+insert into Cadre values ( 'bon', 0, 'couvain', 72, 108);
+insert into Cadre values ( 'mauvais', 298, 'miel', 73, 108);
+insert into Cadre values ( 'bon', 0, 'cire', 74, 108);
+insert into Cadre values ( 'moyen', 0, 'miel', 75, 108);
+insert into Cadre values ( 'bon', 456, 'miel', 76, 108);
+insert into Cadre values ( 'mauvais', 0, 'miel', 77, 108);
+insert into Cadre values ( 'bon', 0, 'couvain', 78, 108);
+insert into Cadre values ( 'moyen', 0, 'cire', 79, 108);
+insert into Cadre values ( 'bon', 0, 'pollen', 80, 108);
+
+
+/* Création de 20 cadres CORPS en torchis dans les hausses 109 et 110 */
+
+insert into Cadre values ( 'bon', 456, 'miel', 81, 109);
+insert into Cadre values ( 'bon', 0, 'couvain', 82, 109);
+insert into Cadre values ( 'mauvais',0, 'cire', 83, 109);
+insert into Cadre values ( 'bon', 0, 'couvain', 84, 109);
+insert into Cadre values ( 'moyen', 0, 'pollen', 85, 109);
+insert into Cadre values ( 'mauvais', 874, 'miel', 86, 109);
+insert into Cadre values ( 'moyen', 0, 'couvain', 87, 109);
+insert into Cadre values ( 'mauvais', 128, 'miel', 88, 109);
+insert into Cadre values ( 'mauvais', 0, 'construit',89, 109);
+insert into Cadre values ( 'bon', 0, 'construit', 90, 109);
+
+insert into Cadre values ( 'bon', 0, 'construit', 91, 110);
+insert into Cadre values ( 'bon', 0, 'couvain', 92, 110);
+insert into Cadre values ( 'mauvais', 911, 'miel', 93, 110);
+insert into Cadre values ( 'bon', 0, 'cire', 94, 110);
+insert into Cadre values ( 'moyen', 523, 'miel', 95, 110);
+insert into Cadre values ( 'bon', 378, 'miel', 96, 110);
+insert into Cadre values ( 'mauvais', 806, 'miel', 97, 110);
+insert into Cadre values ( 'bon', 0, 'couvain', 98, 110);
+insert into Cadre values ( 'moyen', 0, 'cire', 99, 110);
+insert into Cadre values ( 'bon', 0, 'pollen', 100, 110);
+
+
+
+
+/* == Création de 100 cadres dans des hausses supplémentaires (contenu : cire, construit, miel) numérotées de 111 à 120 == */
+
+/* Création de 20 cadres supplémentaires en plastique dans les hausses 111 et 112 */
+
+insert into Cadre values ( 'moyen', 0, 'construit', 201, 111);
+insert into Cadre values ( 'bon', 0, 'construit', 202, 111);
+insert into Cadre values ( 'mauvais', 0, 'cire', 203, 111);
+insert into Cadre values ( 'bon', 0, 'construit', 204, 111);
+insert into Cadre values ( 'bon', 951, 'miel', 205, 111);
+insert into Cadre values ( 'bon', 298, 'miel', 206, 111);
+insert into Cadre values ( 'mauvais', 648, 'miel', 207, 111);
+insert into Cadre values ( 'moyen', 0, 'cire', 208, 111);
+insert into Cadre values ( 'moyen', 0, 'cire', 209, 111);
+insert into Cadre values ( 'moyen', 423, 'miel', 210, 111);
+
+insert into Cadre values ( 'bon', 0, 'construit', 211, 112);
+insert into Cadre values ( 'bon', 458, 'miel', 212, 112);
+insert into Cadre values ( 'mauvais', 214, 'miel', 213, 112);
+insert into Cadre values ( 'bon', 0, 'cire', 214, 112);
+insert into Cadre values ( 'moyen', 0, 'cire', 215, 112);
+insert into Cadre values ( 'bon', 0, 'construit', 216, 112);
+insert into Cadre values ( 'mauvais', 784, 'miel', 217, 112);
+insert into Cadre values ( 'mauvais', 0, 'cire', 218, 112);
+insert into Cadre values ( 'moyen', 0, 'construit', 219, 112);
+insert into Cadre values ( 'bon', 540, 'miel', 220, 112);
+
+/* Création de 20 cadres supplémentaires en bois dans les hausses 113 et 114 */
+
+insert into Cadre values ( 'moyen', 0, 'construit', 221, 113);
+insert into Cadre values ( 'bon', 0, 'construit', 222, 113);
+insert into Cadre values ( 'mauvais', 0, 'cire', 223, 113);
+insert into Cadre values ( 'bon', 0, 'construit', 224, 113);
+insert into Cadre values ( 'bon', 354, 'miel', 225, 113);
+insert into Cadre values ( 'bon', 837, 'miel', 226, 113);
+insert into Cadre values ( 'mauvais', 761, 'miel', 227, 113);
+insert into Cadre values ( 'moyen', 0, 'cire', 228, 113);
+insert into Cadre values ( 'moyen', 0, 'cire', 229, 113);
+insert into Cadre values ( 'moyen', 721, 'miel', 230, 113);
+
+insert into Cadre values ( 'bon', 0, 'construit', 231, 114);
+insert into Cadre values ( 'bon', 764, 'miel', 232, 114);
+insert into Cadre values ( 'mauvais', 489, 'miel', 233, 114);
+insert into Cadre values ( 'bon', 0, 'cire', 234, 114);
+insert into Cadre values ( 'moyen', 0, 'cire', 235, 114);
+insert into Cadre values ( 'bon', 0, 'construit', 236, 114);
+insert into Cadre values ( 'mauvais', 56, 'miel', 237, 114);
+insert into Cadre values ( 'mauvais', 0, 'cire', 238, 114);
+insert into Cadre values ( 'moyen', 0, 'construit', 239, 114);
+insert into Cadre values ( 'bon', 0, 'construit', 240, 114);
+
+/* Création de 20 cadres supplémentaires en bambou dans les hausses 115 et 116 */
+
+insert into Cadre values ( 'moyen', 0, 'construit', 251, 115);
+insert into Cadre values ( 'bon', 0, 'construit', 252, 115);
+insert into Cadre values ( 'mauvais', 0, 'cire', 253, 115);
+insert into Cadre values ( 'bon', 0, 'construit', 254, 115);
+insert into Cadre values ( 'bon', 656, 'miel', 255, 115);
+insert into Cadre values ( 'bon', 734, 'miel', 256, 115);
+insert into Cadre values ( 'mauvais', 34, 'miel', 257, 115);
+insert into Cadre values ( 'moyen', 0, 'cire', 258, 115);
+insert into Cadre values ( 'moyen', 0, 'cire', 259, 115);
+insert into Cadre values ( 'moyen', 368, 'miel', 260, 115);
+
+insert into Cadre values ( 'bon', 756, 'construit', 261, 116);
+insert into Cadre values ( 'bon', 954, 'miel', 262, 116);
+insert into Cadre values ( 'mauvais', 23, 'miel', 263, 116);
+insert into Cadre values ( 'bon', 0, 'cire', 264, 116);
+insert into Cadre values ( 'moyen', 0, 'cire', 265, 116);
+insert into Cadre values ( 'bon', 0, 'construit', 266, 116);
+insert into Cadre values ( 'mauvais', 21, 'miel', 267, 116);
+insert into Cadre values ( 'mauvais', 0, 'cire', 268, 116);
+insert into Cadre values ( 'moyen', 0, 'construit', 269, 116);
+insert into Cadre values ( 'bon', 0, 'construit', 270, 116);
+
+
+
+/* Création de 20 cadres supplémentaires en plastique dans les hausses 117 et 118 */
+
+insert into Cadre values ( 'moyen', 0, 'construit', 131, 117);
+insert into Cadre values ( 'bon', 0, 'construit', 132, 117);
+insert into Cadre values ( 'mauvais', 0, 'cire', 133, 117);
+insert into Cadre values ( 'bon', 0, 'construit', 134, 117);
+insert into Cadre values ( 'bon', 132, 'miel', 135, 117);
+insert into Cadre values ( 'bon', 58, 'miel', 136, 117);
+insert into Cadre values ( 'mauvais', 943, 'miel', 137, 117);
+insert into Cadre values ( 'moyen', 0, 'cire', 138, 117);
+insert into Cadre values ( 'moyen', 0, 'cire', 139, 117);
+insert into Cadre values ( 'moyen', 189, 'miel', 140, 117);
+
+insert into Cadre values ( 'bon', 0, 'construit', 121, 118);
+insert into Cadre values ( 'bon', 376, 'miel', 122, 118);
+insert into Cadre values ( 'mauvais', 536, 'miel', 123, 118);
+insert into Cadre values ( 'bon', 0, 'cire', 124, 118);
+insert into Cadre values ( 'moyen', 0, 'cire', 125, 118);
+insert into Cadre values ( 'bon', 0, 'construit', 126, 118);
+insert into Cadre values ( 'mauvais', 153, 'miel', 127, 118);
+insert into Cadre values ( 'mauvais', 0, 'cire', 128, 118);
+insert into Cadre values ( 'moyen', 0, 'construit', 129, 118);
+insert into Cadre values ( 'bon', 0, 'construit', 130, 118);
+
+
+/* Création de 10 cadres supplémentaires en plastique dans la hausse 119*/
+
+insert into Cadre values ( 'moyen', 0, 'construit', 281, 119);
+insert into Cadre values ( 'bon', 0, 'construit', 282, 119);
+insert into Cadre values ( 'mauvais', 0, 'cire', 283, 119);
+insert into Cadre values ( 'bon', 0, 'construit', 284, 119);
+insert into Cadre values ( 'bon', 36, 'miel', 285, 119);
+insert into Cadre values ( 'bon', 876, 'miel', 286, 119);
+insert into Cadre values ( 'mauvais', 431, 'miel', 287, 119);
+insert into Cadre values ( 'moyen', 0, 'cire', 288, 119);
+insert into Cadre values ( 'moyen', 0, 'cire', 289, 119);
+insert into Cadre values ( 'moyen', 139, 'miel', 290, 119);
+
+
+/* Création de 10 cadres supplémentaires en torchis dans la hausse 120*/
+
+insert into Cadre values ( 'bon', 0, 'construit', 141, 120);
+insert into Cadre values ( 'bon', 0, 'couvain', 142, 120);
+insert into Cadre values ( 'mauvais', 44, 'miel', 143, 120);
+insert into Cadre values ( 'bon', 0, 'cire', 144, 120);
+insert into Cadre values ( 'moyen', 576, 'miel', 145, 120);
+insert into Cadre values ( 'bon', 432, 'miel', 146, 120);
+insert into Cadre values ( 'mauvais', 243, 'miel', 147, 120);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 148, 120);
+insert into Cadre values ( 'moyen', 0, 'cire', 149, 120);
+insert into Cadre values ( 'bon', 0, 'pollen', 150, 120);
