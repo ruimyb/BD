@@ -1,0 +1,67 @@
+DROP TABLE EstCorpsRuche;
+DROP TABLE Essaim;
+DROP TABLE Ruche;
+DROP TABLE Plancher;
+DROP TABLE Toit;
+DROP TABLE Couvercle;
+DROP TABLE Cadre;
+DROP TABLE Hausse;
+DROP TABLE Materiel;
+
+
+CREATE TABLE Materiel(
+    NumMateriel INTEGER CONSTRAINT Knum PRIMARY KEY,
+    MatiereMateriel VARCHAR(100)
+);
+
+CREATE TABLE Hausse (
+    Couleur VARCHAR(20),
+    NumHausse INTEGER references Materiel PRIMARY KEY
+);
+
+CREATE TABLE Cadre (
+    Etat VARCHAR(30),
+    PoidsCadre INTEGER ,
+    Contenu VARCHAR(30),
+    NumCadre INTEGER references Materiel,
+    NumHausse INTEGER references Hausse,
+    CHECK (Contenu in ('vide', 'cire', 'construit', 'couvain', 'miel', 'pollen')),
+    CHECK (Etat in ('bon', 'moyen', 'mauvais')),
+    CHECK (PoidsCadre >= 0)
+);
+
+CREATE TABLE Couvercle (
+    NumCouvercle INTEGER references Materiel PRIMARY KEY
+);
+
+CREATE TABLE Toit (
+    NumToit INTEGER references Materiel PRIMARY KEY
+);
+
+CREATE TABLE Plancher (
+    NumPlancher INTEGER references Materiel PRIMARY KEY
+);
+
+CREATE TABLE Ruche (
+    CodeRuche INTEGER primary key,
+    NumPlancher INTEGER references Plancher,
+    NumCouvercle INTEGER references Couvercle,
+    NumToit INTEGER references Toit,
+    Poids INTEGER
+);
+
+CREATE TABLE Essaim (
+    CodeEssaim INTEGER primary key,
+    Couleur VARCHAR(30),
+    Race VARCHAR(30),
+    Age INTEGER,
+    CodeRuche INTEGER references Ruche,
+    CHECK (Age > 0)
+);
+
+CREATE TABLE EstCorpsRuche (
+    CodeRuche INTEGER references Ruche,
+    NumHausse INTEGER references Hausse,
+    Type VARCHAR(30),
+    CHECK (Type IN ('CorpsDeLaRuche', 'Supplementaire'))
+);
