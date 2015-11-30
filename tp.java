@@ -24,19 +24,18 @@ public class tp {
 	    System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
 	    System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
 	    String str1 = sc.nextLine();
-	    System.out.println(str1);
-	    while ( (str1 != "a") || 
-		    (str1 != "b") || 
-		    (str1 != "c") || 
-		    (str1 != "d") || 
-		    (str1 != "e")  ){
+	    while (!(str1.equals("a") || 
+		    str1.equals("b") || 
+		    str1.equals("c") || 
+		    str1.equals("d") || 
+		     str1.equals("d") )) {
 	    	System.out.println("Veuillez saisir à nouveau votre requete: \n");
-		    System.out.println("(a) Assembler une ruche et y placer un essaim  \n");
-		    System.out.println("(b) Transfert d'un cadre de couvain\n");
-		    System.out.println("(c) Calculer le poids de la récolte totale \n");
-		    System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
-		    System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
-		    str1 = sc.nextLine();
+		System.out.println("(a) Assembler une ruche et y placer un essaim  \n");
+		System.out.println("(b) Transfert d'un cadre de couvain\n");
+		System.out.println("(c) Calculer le poids de la récolte totale \n");
+		System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
+		System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
+		str1 = sc.nextLine();
 	    }
 	    switch (str1) {
 	    case "a": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
