@@ -17,12 +17,42 @@ public class tp {
 	    Statement stmt = connection.createStatement();
 
 	    Scanner sc = new Scanner(System.in);
-	    System.out.println("Veuillez saisir votre type de requete (ex : SELECT)");
+	    System.out.println("Veuillez saisir votre requete: \n");
+	    System.out.println("(a) Assembler une ruche et y placer un essaim  \n");
+	    System.out.println("(b) Transfert d'un cadre de couvain\n");
+	    System.out.println("(c) Calculer le poids de la récolte totale \n");
+	    System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
+	    System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
 	    String str1 = sc.nextLine();
+	    while ( (str1 != "a") && (str1 != "b") && (str1 != "c") && (str1 != "d") && (str1 != "e")  ){
+	    	System.out.println("Veuillez saisir votre requete: \n");
+		    System.out.println("(a) Assembler une ruche et y placer un essaim  \n");
+		    System.out.println("(b) Transfert d'un cadre de couvain\n");
+		    System.out.println("(c) Calculer le poids de la récolte totale \n");
+		    System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
+		    System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
+		    String str1 = sc.nextLine();
+	    }
 	    switch (str1) {
-	    case "SELECT": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+	    case "a": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
 		break;
-	    default: System.out.println("Pas encore traité");
+		case "b": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+		break;
+		case "c": 
+				System.out.println("Vous avez choisi de calculer le poids de la récolte totale");
+	    		String S = "SELECT Sum(PoidsCadre) FROM Cadre c, Hausse h, EstCorpsRuche ecr, ruche r 
+	    					WHERE (h.NumHausse = c.NumHausse) AND (c.contenu = 'miel') AND (ecr.Type = Supplementaire) AND (r.CodeRuche = ecr.CodeRuche) AND 
+	    					(h.NumHausse = ecr.NumHausse) ";
+	    		ResultSet rs = stmt.executeQuery(S);
+	    		//	while (rs.next()) {
+				System.out.println(rs.getString("Sum(PoidsCadre)")) ;
+	    		//}
+		break;
+		case "d": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+		break;
+		case "e": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+		break;
+	    default: System.out.println("Mauvais choix, recommencez");
 		break;
 	    }
 
