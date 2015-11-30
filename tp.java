@@ -48,7 +48,13 @@ public class tp {
 				System.out.println(rs.getString("Sum(PoidsCadre)")) ;
 	    		//}
 		break;
-		case "d": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+		case "d": 
+				System.out.println("Vous avez choisi de calculer le poids moyen des cadres de hausses en fonction de la race des abeilles");
+				System.out.println("Veuillez choisir la race de la reine");
+				String  choixClient = sc.nextLine();
+				String S = "SELECT AVG(PoidsCadre) FROM Cadre c, Ruche r, Essaim e, EstCorpsRuche ecr WHERE (e.Race = " + choixClient + ") AND (e.CodeRuche = r.CodeRuche) AND (h.NumHausse = c.NumHausse) AND (c.Contenu = 'miel') AND (r.CodeRuche = ecr.CodeRuche) and (h.NumHausse = ecr.NumHausse)";
+				ResultSet rs = stmt.executeQuery(S);
+				System.out.println(rs.getString("AVG(PoidsCadre)")) ;
 		break;
 		case "e": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
 		break;
@@ -56,7 +62,7 @@ public class tp {
 		break;
 	    }
 
-	    String str2 = sc.nextLine();
+	    //String str2 = sc.nextLine();
 	    switch (str2) {
 	    case "Materiel": System.out.println("Veuillez saisir sur quel composant vous intéresse (NumMateriel ou MatiereMateriel)");
 		break;
