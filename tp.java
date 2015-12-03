@@ -38,15 +38,66 @@ public class tp {
 		str1 = sc.nextLine();
 	    }
 	    switch (str1) {
-	    case "a": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+	    case "a": System.out.println("Vous avez choisi d'assembler une ruchet et d'y placer un essaim");
 		break;
-		case "b": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
+		case "b": System.out.println("Vous avez choisi d'effectuer un transfert de cadre de couvain");
+				//Stockage des deux bons numéros de cadres attendus
+				String s_b = "Select c.NumCadre "+ "from RUCHE r, Cadre c, Hausse h, EstCorpsRuche ECR" + 
+										"where c.Contenu = 'couvain'" + 
+										"where c.NumHausse = ECR.NumHausse"+
+										"where ECR.CodeRuche = r.CodeRuche" +
+										"where r.CodeRuche = 5" +
+										"where ECR.CHECK= 'CorpsDeLaRuche'";
+				ResultSet numCadreRuche5 = stmt.executeQuery(s_b); 
+				if(numCadreRuche5 == null){
+					System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5\n");
+					System.out.println("Abandons du transfert");
+					break; 
+				}
+				s_b = "Select c.NumCadre" +
+										"from RUCHE r, Cadre c, Hausse h, EstCorpsRuche ECR" + 
+										"where c.Contenu = 'construit'"+
+										"where c.NumHausse = ECR.NumHausse"+ 
+										"where ECR.CodeRuche = r.CodeRuche"+
+										"where r.CodeRuche = 3"+
+										"where ECR.CHECK= 'CorpsDeLaRuche'";
+				ResultSet numCadreRuche3 = stmt.executeQuery(s_b);
+				if(numCadreRuche3 == null){
+					System.out.println("Il n'y a pas de cadre construit dans la Ruche 3 \n"); 
+					System.out.println("Abandons du transfert");
+					break;
+				} 
+				//Retenir les numéros de hausse correspondants
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche5.getString(1); 
+				ResultSet numHausseCadre5 = stmt.executeQuery(s_b);
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString(1); 
+				ResultSet numHausseCadre3 = stmt.executeQuery(s_b);
+				//On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
+				s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' where c.NumHausse = NULL";
+				ResultSet numCadreCireDispo = stmt.executeQuery(s_b);
+				if(numCadreCireDispo == null){
+					System.out.println("Il n'y a aucun cadre ciré disponible.\n"); 			
+					System.out.println("Abandons du transfert");
+					break; 
+				}
+				//Mise à jour du numéro de hausse du cadre à changer. 
+				s_b = "UPDATE Cadre SET NumHausse =" + numHausseCadre3.getString(1) + 
+							 "WHERE NumCadre =" + numCadreRuche5.getString(1);
+				stmt.executeQuery(s_b);
+				//Eventuellement faire un affichage du corps de la Hausse de la Ruche 5 pour vérifier"
+				//On rend le cadre qui était dans la ruche 3 disponible
+				s_b = "UPDATE Cadre SET NumHausse = NULL WHERE NumCadre =" + numCadreRuche3.getString(1);
+				stmt.executeQuery(s_b); 
+				
+				s_b = "Select UPDATE Cadre SET NumHausse = LeBonNumeroDeHausse1 WHERE NumCadre = LeNouveauNumeroDeCadre";
+
+
 		break;
 		case "c": 
 				System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
 	    		String s_c = "SELECT Sum(PoidsCadre) FROM Cadre c, Hausse h, EstCorpsRuche ecr, ruche r WHERE (h.NumHausse = c.NumHausse) AND (c.contenu = 'miel') AND (ecr.Type = Supplementaire) AND (r.CodeRuche = ecr.CodeRuche) AND (h.NumHausse = ecr.NumHausse) ";
 	    		ResultSet rs_c = stmt.executeQuery(s_c);
-	    		//	while (rs.next()) {
+	    		//	while (rs_c.next()) {
 				System.out.println(rs_c.getString("Sum(PoidsCadre)")) ;
 	    		//}
 		break;
@@ -70,7 +121,7 @@ public class tp {
 		break;
 	    }
 
-	    String str2 = sc.nextLine();
+	    /*String str2 = sc.nextLine();
 	    switch (str2) {
 	    case "Materiel": System.out.println("Veuillez saisir sur quel composant vous intéresse (NumMateriel ou MatiereMateriel)");
 		break;
@@ -98,7 +149,7 @@ public class tp {
 	    ResultSet rs = stmt.executeQuery(S);
 	    while (rs.next()) {
 		System.out.println(rs.getString(str3)) ;
-	    }
+	    }*/
 	}
 	catch (SQLException e) {
 	    e.printStackTrace();
