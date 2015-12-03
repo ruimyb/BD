@@ -42,33 +42,28 @@ public class tp {
 		break;
 		case "b": System.out.println("Vous avez choisi d'effectuer un transfert de cadre de couvain");
 				//Stockage des deux bons numéros de cadres attendus
-				String s_b = "Select c.NumCadre "+ "from RUCHE r, Cadre c, Hausse h, EstCorpsRuche ECR" + 
-										"where c.Contenu = 'couvain'" + 
-										"where c.NumHausse = ECR.NumHausse"+
-										"where ECR.CodeRuche = r.CodeRuche" +
-										"where r.CodeRuche = 5" +
-										"where ECR.CHECK= 'CorpsDeLaRuche'";
-				ResultSet numCadreRuche5 = stmt.executeQuery(s_b); 
-				if(numCadreRuche5 == null){
+				String s_b = "Select c.NumCadre from Ruche r, Cadre c, EstCorpsRuche ECR where c.Contenu = 'couvain' and c.NumHausse = ECR.NumHausse and ECR.CodeRuche = 5 and r.CodeRuche = 5 and ECR.Type = 'CorpsDeLaRuche'";
+				ResultSet numCadreRuche5 = stmt.executeQuery(s_b);
+				if(!numCadreRuche5.next()){
 					System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5\n");
 					System.out.println("Abandons du transfert");
 					break; 
 				}
-				s_b = "Select c.NumCadre" +
-										"from RUCHE r, Cadre c, Hausse h, EstCorpsRuche ECR" + 
-										"where c.Contenu = 'construit'"+
-										"where c.NumHausse = ECR.NumHausse"+ 
-										"where ECR.CodeRuche = r.CodeRuche"+
-										"where r.CodeRuche = 3"+
-										"where ECR.CHECK= 'CorpsDeLaRuche'";
+				s_b = "Select c.NumCadre " +		
+				    "from RUCHE r, Cadre c, EstCorpsRuche ECR " + 
+				    "where c.Contenu = 'construit' "+
+				    "and c.NumHausse = ECR.NumHausse "+ 
+				    "and ECR.CodeRuche = r.CodeRuche "+
+				    "and r.CodeRuche = 3 "+
+				    "and ECR.Type = 'CorpsDeLaRuche'";
 				ResultSet numCadreRuche3 = stmt.executeQuery(s_b);
-				if(numCadreRuche3 == null){
-					System.out.println("Il n'y a pas de cadre construit dans la Ruche 3 \n"); 
-					System.out.println("Abandons du transfert");
-					break;
+				if(!numCadreRuche3.next()){
+				    System.out.println("Il n'y a pas de cadre construit dans la Ruche 3 \n"); 
+				    System.out.println("Abandons du transfert");
+				    break;
 				} 
 				//Retenir les numéros de hausse correspondants
-				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche5.getString(1); 
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre = " + numCadreRuche5.getString("c.NumCadre");
 				ResultSet numHausseCadre5 = stmt.executeQuery(s_b);
 				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString(1); 
 				ResultSet numHausseCadre3 = stmt.executeQuery(s_b);
