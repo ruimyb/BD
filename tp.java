@@ -28,7 +28,7 @@ public class tp {
 		    str1.equals("b") || 
 		    str1.equals("c") || 
 		    str1.equals("d") || 
-		     str1.equals("d") )) {
+		     str1.equals("e") )) {
 	    	System.out.println("Veuillez saisir à nouveau votre requete: \n");
 		System.out.println("(a) Assembler une ruche et y placer un essaim  \n");
 		System.out.println("(b) Transfert d'un cadre de couvain\n");
