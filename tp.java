@@ -40,19 +40,19 @@ public class tp {
 	    switch (str1) {
 	    case "a": System.out.println("Pour créer une ruche il faut : un toit, un plancher, un couvercle, plusieurs hausses\n");
 		System.out.println("Veuillez choisir un toit, un plancher et un couvercle parmi ceux disponibles:");
-		String S_toit = "SELECT NumToit, MatiereMateriel from Toit, Matiere where NumToit=NumMateriel";
+		String S_toit = "(SELECT NumToit from Toit) MINUS (SELECT NumToit FROM Ruche)";
 		ResultSet rs_toit = stmt.executeQuery(S_toit);
 		System.out.println(rs_toit.getString("NumToit"));
 		Scanner sc_toit = new Scanner(System.in);
 		String str_toit = sc.nextLine();
 		
-		String S_plancher = "SELECT NumPlancher, MatiereMateriel from Plancher, Matiere where NumPlancher=NumMateriel";
+		String S_plancher = "(SELECT NumPlancher from PLancher) MINUS (SELECT NumPlancher FROM Ruche)";
 		ResultSet rs_plancher = stmt.executeQuery(S_plancher);
 		System.out.println(rs_toit.getString("NumPlancher"));
 		Scanner sc_plancher = new Scanner(System.in);
 		String str_plancher = sc.nextLine();
 		
-		String S_couvercle = "SELECT NumCouvercle, MatiereMateriel from Couvercle, Matiere where NumCouvercle=NumMateriel";
+		String S_couvercle = "(SELECT NumCouvercle from Couvercle) MINUS (SELECT NumCouvercle FROM Ruche)"; 
 		ResultSet rs_couvercle = stmt.executeQuery(S_couvercle);
 		System.out.println(rs_toit.getString("NumCouvercle"));
 		Scanner sc_couvercle = new Scanner(System.in);
@@ -64,8 +64,15 @@ public class tp {
 		
 		//Récupération de CodeRuche, 1 s'il n'y pas de ruche
 		//+1 au Count(CodeRuche) s'il y a au moins une ruche
-				
-
+		String str_count = "SELECT count(CodeRuche) From Ruche";
+		ResultSet rs_count = stmt.executeQuery(S_count);
+		int count = rs_count.getInt("count") + 1;
+		
+		String S_Ruche = "INSERT INTO Ruche VALUES (" + count + "," + str_plancher + "," + str_couvercle + "," + str_toit + "," + str_poids + ")"; 
+		ResultSet rs_ruche = stmt.executeQuery(S_Ruche);
+		
+		//hausses et cadres associés deja dans la bd
+		//implémenter estCorpsRuche, en choisissant des hausses disponibles
 		break;
 		case "b": System.out.println("Veuillez saisir sur quelle table on travaille (Materiel, Hausse, Cadre, Couvercle, Toit, Plancher, Ruche, Essaim, EstCorpsRuche)");
 		break;
