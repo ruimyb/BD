@@ -38,8 +38,45 @@ public class tp {
 		str1 = sc.nextLine();
 	    }
 	    switch (str1) {
-	    case "a": System.out.println("Vous avez choisi d'assembler une ruchet et d'y placer un essaim");
+
+	    case "a": System.out.println("Pour créer une ruche il faut : un toit, un plancher, un couvercle, plusieurs hausses\n");
+		System.out.println("Veuillez choisir un toit, un plancher et un couvercle parmi ceux disponibles:");
+		String S_toit = "(SELECT NumToit from Toit) MINUS (SELECT NumToit FROM Ruche)";
+		ResultSet rs_toit = stmt.executeQuery(S_toit);
+		System.out.println(rs_toit.getString("NumToit"));
+		Scanner sc_toit = new Scanner(System.in);
+		String str_toit = sc.nextLine();
+		
+		String S_plancher = "(SELECT NumPlancher from PLancher) MINUS (SELECT NumPlancher FROM Ruche)";
+		ResultSet rs_plancher = stmt.executeQuery(S_plancher);
+		System.out.println(rs_toit.getString("NumPlancher"));
+		Scanner sc_plancher = new Scanner(System.in);
+		String str_plancher = sc.nextLine();
+		
+		String S_couvercle = "(SELECT NumCouvercle from Couvercle) MINUS (SELECT NumCouvercle FROM Ruche)"; 
+		ResultSet rs_couvercle = stmt.executeQuery(S_couvercle);
+		System.out.println(rs_toit.getString("NumCouvercle"));
+		Scanner sc_couvercle = new Scanner(System.in);
+		String str_couvercle = sc.nextLine();
+
+		System.out.println("Veuillez indiquer le poids de votre ruche");
+		Scanner sc_poids = new Scanner(System.in);
+		String str_poids = sc.nextLine();
+		
+		//Récupération de CodeRuche, 1 s'il n'y pas de ruche
+		//+1 au Count(CodeRuche) s'il y a au moins une ruche
+		String str_count = "SELECT count(CodeRuche) From Ruche";
+		ResultSet rs_count = stmt.executeQuery(S_count);
+		int count = rs_count.getInt("count") + 1;
+		
+		String S_Ruche = "INSERT INTO Ruche VALUES (" + count + "," + str_plancher + "," + str_couvercle + "," + str_toit + "," + str_poids + ")"; 
+		ResultSet rs_ruche = stmt.executeQuery(S_Ruche);
+		
+		//hausses et cadres associés deja dans la bd
+		//implémenter estCorpsRuche, en choisissant des hausses disponibles
 		break;
+
+
 		case "b": System.out.println("Vous avez choisi d'effectuer un transfert de cadre de couvain");
 				//Stockage des deux bons numéros de cadres attendus
 				String s_b = "Select c.NumCadre from Ruche r, Cadre c, EstCorpsRuche ECR where c.Contenu = 'couvain' and c.NumHausse = ECR.NumHausse and ECR.CodeRuche = 5 and r.CodeRuche = 5 and ECR.Type = 'CorpsDeLaRuche'";
@@ -87,6 +124,7 @@ public class tp {
 				s_b = "Select UPDATE Cadre SET NumHausse = LeBonNumeroDeHausse1 WHERE NumCadre = LeNouveauNumeroDeCadre";
 
 
+>>>>>>> 4585b96ddb9adf2f47c2bc40bf5ab6af943ab13f
 		break;
 		case "c": 
 				System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
