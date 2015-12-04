@@ -75,7 +75,7 @@ public class tp {
 		//insertion des hausses, vérifier que nb_hausse<nombre de hausses disponibles
 		System.out.println("Combien de hausses souhaitez vous ?");
 		Scanner sc_nb_hausses = new Scanner(System.in);
-		int nb_hausses = sc_nb_hausses.nextLine();
+		int nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
 		//choix des hausses
 		System.out.println("Veuillez choisir vos hausses parmi celles disponibles");
 		String S_hausses = "select NumHausse, Couleur from Hausse where ((SELECT NumHausse from Hausse) MINUS (SELECT NumHausse FROM EstCorpsRuche))= NumHausse";
@@ -88,9 +88,8 @@ public class tp {
 		Scanner sc_choix_hausse = new Scanner(System.in);
 		int choix_hausse;
 		for (int i=0; i<nb_hausses; i++){
-			choix_hausse = sc_choix_hausse.nextLine();
-			if (i < 2) {
-				
+			choix_hausse = Integer.parseInt(sc_choix_hausse.nextLine());
+			if (i < 2) {	
 			 	S_EstCorpsRuche = "insert into EstCorpsRuche values (" + count + "," + choix_hausse +",CorpsDeLaRuche)"; 
 				
 			}else{
