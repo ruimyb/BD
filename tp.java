@@ -1,6 +1,7 @@
 import java.sql.*;
 import java.io.*;
 import java.util.*;
+import java.lang.Math;
 
 public class tp {
     public static void main(String[] args) {
@@ -72,10 +73,23 @@ public class tp {
 		String S_Ruche = "INSERT INTO Ruche VALUES (" + count + "," + str_plancher + "," + str_couvercle + "," + str_toit + "," + str_poids + ")"; 
 		ResultSet rs_ruche = stmt.executeQuery(S_Ruche);
 		
+		//recuperation du nombre de hausses disponible
+		String str_nbHaussesTotal = "SELECT count(NumHausse) FROM Hausse";
+		String str_nbHausseUtilise = "SELECT count(NumHausse) FROM EstCorpsRuche";
+		ResultSet rs_nbHausseTotal = stmt.executeQuery(str_nbHaussesTotal);
+		ResultSet rs_nbHausseUtilise = stmt.executeQuery(str_nbHausseUtilise);
+		int nbHaussesTotal = rs_nbHausseTotal.getInt("count");
+		int nbHaussesUtilise = rs_nbHausseUtilise.getInt("count");
+		int nbHaussesDispo = nbHaussesTotal - nbHaussesUtilise;
 		//insertion des hausses, vérifier que nb_hausse<nombre de hausses disponibles
 		System.out.println("Combien de hausses souhaitez vous ?");
 		Scanner sc_nb_hausses = new Scanner(System.in);
 		int nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
+
+		while( nb_hausses > nbHaussesDispo){
+		    System.out.prinln("Veuillez saisir un bon nombre de hausses, il y en a " + nbHaussesDispo );
+		    nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
+		}
 		//choix des hausses
 		System.out.println("Veuillez choisir vos hausses parmi celles disponibles");
 		String S_hausses = "select NumHausse, Couleur from Hausse where ((SELECT NumHausse from Hausse) MINUS (SELECT NumHausse FROM EstCorpsRuche))= NumHausse";
@@ -89,14 +103,57 @@ public class tp {
 		int choix_hausse;
 		for (int i=0; i<nb_hausses; i++){
 			choix_hausse = Integer.parseInt(sc_choix_hausse.nextLine());
+			int contenu;
 			if (i < 2) {	
 			 	S_EstCorpsRuche = "insert into EstCorpsRuche values (" + count + "," + choix_hausse +",CorpsDeLaRuche)"; 
-				
+				  contenu = (int) (Math.random() * 5);
 			}else{
 				S_EstCorpsRuche = "insert into EstCorpsRuche values (" + count + "," + choix_hausse +",Supplementaire)"; 
-
+				  contenu = (int) (Math.random() * 3);
 			}	
 			rs_EstCorpsRuche = stmt.executeQuery(S_EstCorpsRuche);
+			for ( int j = 0 ; j < 10 ; j++) {
+			    int etat = (int) (Math.random() * 3);
+			    String str_etat;
+			    String str_contenu;
+			    switch (etat){
+			    case 0:
+				str_etat = "bon";
+				break;
+			    case 1:
+				str_etat = "moyen";
+				break;
+			    case 2:
+				str_etat = "mauvais";
+				break;
+			    }
+			    switch (contenu){
+			    case 0: 
+				str_contenu = "cire";
+				break;
+			    case 1: 
+				str_contenu = "construit";
+				break;
+			    case 2:
+				str_contenu = "miel";
+				break;
+			    case 3:
+				str_contenu = "couvain";
+			    case 4:
+				str_contenu = "pollen";
+				break;
+
+			    }
+			    
+			    int poids_cadre = (int)(Math.random() * 1000) + 1 ;
+
+			    String str_cadre = "SELECT count(NumCadre) FROM Cadre";
+			    ResultSet rs_cadre = stmt.executeQuery(str_cadre);
+			    int num_cadre = rs_cadre.getInt("count(NumCadre)");
+
+			    String cadre = "INSERT INTO Cadre VALUES (" + str_etat + "," + poids_cadre + "," + num_cadre +"," +choix_hausse +")" ;
+
+			}
 
 		}
 		break;
@@ -118,7 +175,7 @@ public class tp {
 					System.out.println("Abandons du transfert");
 					break; 
 				}
-				s_b = "Select c.NumCadre " +		
+				s_b) = "Select c.NumCadre " +		
 				    "from RUCHE r, Cadre c, EstCorpsRuche ECR " + 
 				    "where c.Contenu = 'construit' "+
 				    "and c.NumHausse = ECR.NumHausse "+ 
