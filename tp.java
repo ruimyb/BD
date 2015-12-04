@@ -105,7 +105,14 @@ public class tp {
 
 		case "b": System.out.println("Vous avez choisi d'effectuer un transfert de cadre de couvain");
 				//Stockage des deux bons numéros de cadres attendus
-				String s_b = "Select c.NumCadre from Ruche r, Cadre c, EstCorpsRuche ECR where c.Contenu = 'couvain' and c.NumHausse = ECR.NumHausse and ECR.CodeRuche = 5 and r.CodeRuche = 5 and ECR.Type = 'CorpsDeLaRuche'";
+				String s_b = "Select c.NumCadre"
+						+ " from Ruche r, Cadre c, EstCorpsRuche ECR"
+						+ " where c.Contenu = 'couvain' "
+						+ "and c.NumHausse = ECR.NumHausse "
+						+ "and ECR.CodeRuche = 5 "
+						+ "and r.CodeRuche = 5 "
+						+ "and ECR.Type = 'CorpsDeLaRuche'";
+				
 				ResultSet numCadreRuche5 = stmt.executeQuery(s_b);
 				if(!numCadreRuche5.next()){
 					System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5\n");
@@ -128,7 +135,7 @@ public class tp {
 				//Retenir les numéros de hausse correspondants
 				s_b = "Select c.NumHausse from Cadre c where c.NumCadre = " + numCadreRuche5.getString("c.NumCadre");
 				ResultSet numHausseCadre5 = stmt.executeQuery(s_b);
-				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString(1); 
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString("c.NumHausse"); 
 				ResultSet numHausseCadre3 = stmt.executeQuery(s_b);
 				//On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
 				s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' where c.NumHausse = NULL";
@@ -139,18 +146,19 @@ public class tp {
 					break; 
 				}
 				//Mise à jour du numéro de hausse du cadre à changer. 
-				s_b = "UPDATE Cadre SET NumHausse =" + numHausseCadre3.getString(1) + 
-							 "WHERE NumCadre =" + numCadreRuche5.getString(1);
+				s_b = "UPDATE Cadre SET NumHausse =" + numHausseCadre3.getString("c.NumHausse") + 
+							 "WHERE NumCadre =" + numCadreRuche5.getString("c.NumCadre");
 				stmt.executeQuery(s_b);
 				//Eventuellement faire un affichage du corps de la Hausse de la Ruche 5 pour vérifier"
 				//On rend le cadre qui était dans la ruche 3 disponible
-				s_b = "UPDATE Cadre SET NumHausse = NULL WHERE NumCadre =" + numCadreRuche3.getString(1);
+				s_b = "UPDATE Cadre SET NumHausse = NULL "
+						+ "WHERE NumCadre =" + numCadreRuche3.getString("c.NumCadre");
 				stmt.executeQuery(s_b); 
-				
-				s_b = "Select UPDATE Cadre SET NumHausse = LeBonNumeroDeHausse1 WHERE NumCadre = LeNouveauNumeroDeCadre";
-
-
->>>>>>> 4585b96ddb9adf2f47c2bc40bf5ab6af943ab13f
+				//On met le cadre ciré dans la bonne hausse. 
+				s_b = "Select UPDATE Cadre SET NumHausse = "
+						+ numHausseCadre5.getString("c.NumHausse")
+						+ "WHERE NumCadre ="
+						+ numCadreCireDispo.getString("c.NumCadre");
 		break;
 		case "c": 
 				System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
