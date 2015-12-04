@@ -226,14 +226,6 @@ insert into Materiel values (198, 'bois');
 insert into Materiel values (199, 'bois');
 insert into Materiel values (200, 'bois');
 
-
-
-
-
-
-
-
-
 /* Création de matériels en plastique  */
 insert into Materiel values (201, 'plastique');
 insert into Materiel values (202, 'plastique');
@@ -255,7 +247,6 @@ insert into Materiel values (217, 'plastique');
 insert into Materiel values (218, 'plastique');
 insert into Materiel values (219, 'plastique');
 insert into Materiel values (220, 'plastique');
-
 
 /* Création de matériels en bois  */
 insert into Materiel values (221, 'bois');
@@ -439,8 +430,6 @@ insert into Couvercle values (303);
 insert into Couvercle values (304);
 insert into Couvercle values (305);
 
-
-
 /* == Création de 100 cadres dans des hausses du CORPS numérotées de 101 à 110 == */
 
 /* Création de 20 cadres CORPS en bambou dans les hausses 101 et 102 */
@@ -465,7 +454,6 @@ insert into Cadre values ('bon', 1000,  'miel', 57, 102);
 insert into Cadre values ('bon',850,  'miel', 58, 102);
 insert into Cadre values ('mauvais', 755,  'miel', 59, 102);
 insert into Cadre values ('moyen', 0,  'pollen', 60, 102);
-
 
 /* Création de 20 cadres CORPS en bois dans les hausses 103 et 104 */
 
@@ -564,9 +552,6 @@ insert into Cadre values ( 'bon', 0, 'couvain', 98, 110);
 insert into Cadre values ( 'moyen', 0, 'cire', 99, 110);
 insert into Cadre values ( 'bon', 0, 'pollen', 100, 110);
 
-
-
-
 /* == Création de 100 cadres dans des hausses supplémentaires (contenu : cire, construit, miel) numérotées de 111 à 120 == */
 
 /* Création de 20 cadres supplémentaires en plastique dans les hausses 111 et 112 */
@@ -642,7 +627,6 @@ insert into Cadre values ( 'moyen', 0, 'construit', 269, 116);
 insert into Cadre values ( 'bon', 0, 'construit', 270, 116);
 
 
-
 /* Création de 20 cadres supplémentaires en plastique dans les hausses 117 et 118 */
 
 insert into Cadre values ( 'moyen', 0, 'construit', 131, 117);
@@ -695,6 +679,21 @@ insert into Cadre values ( 'mauvais', 0, 'couvain', 148, 120);
 insert into Cadre values ( 'moyen', 0, 'cire', 149, 120);
 insert into Cadre values ( 'bon', 0, 'pollen', 150, 120);
 
+
+/* Création de 10 essaims qui n'appartiennent à aucune ruche*/
+
+insert into Essaim values (1, 'rouge', 'Yaya', 23, NULL);
+insert into Essaim values (2, 'rouge', 'Kwan', 23, NULL);
+insert into Essaim values (3, 'bleu', 'Fifi', 23, NULL);
+insert into Essaim values (4, 'bleu', 'Yaya', 23, NULL);
+insert into Essaim values (5, 'vert', 'Benji', 23, NULL);
+insert into Essaim values (6, 'vert', 'Fifi', 23, NULL);
+insert into Essaim values (7, 'jaune', 'Guillaume', 23, NULL);
+insert into Essaim values (8, 'jaune', 'Kwan', 23, NULL);
+insert into Essaim values (9, 'orange', 'Benji', 23, NULL);
+insert into Essaim values (10, 'orange', 'Guillaume', 23, NULL);
+
+
 /* Cadres disponibles */
 insert into Cadre values ( 'bon', 0, 'cire', 151, -1);
 insert into Cadre values ( 'bon', 0, 'couvain', 152, -1);
@@ -717,3 +716,4 @@ insert into EstCorpsRuche values (5,102,'CorpsDeLaRuche');
 insert into Ruche values(3,313,302,334,21);
 insert into EstCorpsRuche values (3,103,'CorpsDeLaRuche'); 
 insert into EstCorpsRuche values (3,104,'CorpsDeLaRuche'); 
+

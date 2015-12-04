@@ -8,7 +8,6 @@ DROP TABLE Cadre;
 DROP TABLE Hausse;
 DROP TABLE Materiel;
 
-
 CREATE TABLE Materiel(
     NumMateriel INTEGER CONSTRAINT Knum PRIMARY KEY,
     MatiereMateriel VARCHAR(100)
