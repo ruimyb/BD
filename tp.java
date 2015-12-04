@@ -45,35 +45,61 @@ public class tp {
 		ResultSet rs_toit = stmt.executeQuery(S_toit);
 		System.out.println(rs_toit.getString("NumToit"));
 		Scanner sc_toit = new Scanner(System.in);
-		String str_toit = sc.nextLine();
+		String str_toit = sc_toit.nextLine();
 		
 		String S_plancher = "(SELECT NumPlancher from PLancher) MINUS (SELECT NumPlancher FROM Ruche)";
 		ResultSet rs_plancher = stmt.executeQuery(S_plancher);
 		System.out.println(rs_toit.getString("NumPlancher"));
 		Scanner sc_plancher = new Scanner(System.in);
-		String str_plancher = sc.nextLine();
+		String str_plancher = sc_plancher.nextLine();
 		
 		String S_couvercle = "(SELECT NumCouvercle from Couvercle) MINUS (SELECT NumCouvercle FROM Ruche)"; 
 		ResultSet rs_couvercle = stmt.executeQuery(S_couvercle);
 		System.out.println(rs_toit.getString("NumCouvercle"));
 		Scanner sc_couvercle = new Scanner(System.in);
-		String str_couvercle = sc.nextLine();
+		String str_couvercle = sc_plancher.nextLine();
 
 		System.out.println("Veuillez indiquer le poids de votre ruche");
 		Scanner sc_poids = new Scanner(System.in);
-		String str_poids = sc.nextLine();
+		String str_poids = sc_poids.nextLine();
 		
 		//Récupération de CodeRuche, 1 s'il n'y pas de ruche
 		//+1 au Count(CodeRuche) s'il y a au moins une ruche
 		String str_count = "SELECT count(CodeRuche) From Ruche";
-		ResultSet rs_count = stmt.executeQuery(S_count);
+		ResultSet rs_count = stmt.executeQuery(str_count);
 		int count = rs_count.getInt("count") + 1;
 		
 		String S_Ruche = "INSERT INTO Ruche VALUES (" + count + "," + str_plancher + "," + str_couvercle + "," + str_toit + "," + str_poids + ")"; 
 		ResultSet rs_ruche = stmt.executeQuery(S_Ruche);
 		
-		//hausses et cadres associés deja dans la bd
-		//implémenter estCorpsRuche, en choisissant des hausses disponibles
+		//insertion des hausses, vérifier que nb_hausse<nombre de hausses disponibles
+		System.out.println("Combien de hausses souhaitez vous ?");
+		Scanner sc_nb_hausses = new Scanner(System.in);
+		int nb_hausses = sc_nb_hausses.nextLine();
+		//choix des hausses
+		System.out.println("Veuillez choisir vos hausses parmi celles disponibles");
+		String S_hausses = "select NumHausse, Couleur from Hausse where ((SELECT NumHausse from Hausse) MINUS (SELECT NumHausse FROM EstCorpsRuche))= NumHausse";
+		ResultSet rs_hausses = stmt.executeQuery(S_hausses);
+		System.out.println(rs_hausses.getString("NumHausse"));
+		
+		//à faire : vérification du NumHausse saisi, choix_hausse=101..120 et la hausse doit etre disponible
+		String S_EstCorpsRuche ;
+		ResultSet rs_EstCorpsRuche;
+		Scanner sc_choix_hausse = new Scanner(System.in);
+		int choix_hausse;
+		for (int i=0; i<nb_hausses; i++){
+			choix_hausse = sc_choix_hausse.nextLine();
+			if (i < 2) {
+				
+			 	S_EstCorpsRuche = "insert into EstCorpsRuche values (" + count + "," + choix_hausse +",CorpsDeLaRuche)"; 
+				
+			}else{
+				S_EstCorpsRuche = "insert into EstCorpsRuche values (" + count + "," + choix_hausse +",Supplementaire)"; 
+
+			}	
+			rs_EstCorpsRuche = stmt.executeQuery(S_EstCorpsRuche);
+
+		}
 		break;
 
 
