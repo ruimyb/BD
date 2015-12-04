@@ -87,7 +87,8 @@ public class tp {
 		int nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
 
 		while( nb_hausses > nbHaussesDispo){
-		    System.out.prinln("Veuillez saisir un bon nombre de hausses, il y en a " + nbHaussesDispo );
+		    String Kwan = "Veuillez saisir un bon nombre de hausses, il y en a " + nbHaussesDispo;
+		    System.out.println(Kwan);
 		    nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
 		}
 		//choix des hausses
@@ -126,6 +127,9 @@ public class tp {
 			    case 2:
 				str_etat = "mauvais";
 				break;
+			    default:
+				str_etat = "moyen";
+				break;
 			    }
 			    switch (contenu){
 			    case 0: 
@@ -142,7 +146,9 @@ public class tp {
 			    case 4:
 				str_contenu = "pollen";
 				break;
-
+			    default:
+				str_contenu = "miel";
+				break;
 			    }
 			    
 			    int poids_cadre = (int)(Math.random() * 1000) + 1 ;
@@ -175,7 +181,7 @@ public class tp {
 					System.out.println("Abandons du transfert");
 					break; 
 				}
-				s_b) = "Select c.NumCadre " +		
+				s_b = "Select c.NumCadre " +		
 				    "from RUCHE r, Cadre c, EstCorpsRuche ECR " + 
 				    "where c.Contenu = 'construit' "+
 				    "and c.NumHausse = ECR.NumHausse "+ 
