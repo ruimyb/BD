@@ -14,6 +14,11 @@ public class tp {
 	    String passwd = "Coucou";
 
 	    connection = DriverManager.getConnection(url, user,	passwd);
+    }catch(SQLException e){
+        System.err.println("FAILED");
+        e.printStackTrace();
+    }
+    try{
 	    Statement stmt = connection.createStatement();
 
 	    Scanner sc = new Scanner(System.in);
@@ -36,7 +41,10 @@ public class tp {
 		System.out.println("(d) Calculer le poids moyen des cadres de hausse en fonction de la race des abeilles\n");
 		System.out.println("(e) Calculer le nombre de cadres de couvain pour une ruche\n");
 		str1 = sc.nextLine();
-	    }
+	    }catch(SQLException e){    
+            System.err.println("FAILED");
+            e.printStackTrace();
+        }
 	    switch (str1) {
 
 	    case "a": System.out.println("Pour créer une ruche il faut : un toit, un plancher, un couvercle, plusieurs hausses\n");
@@ -55,7 +63,7 @@ public class tp {
 		
 		String S_couvercle = "(SELECT NumCouvercle from Couvercle) MINUS (SELECT NumCouvercle FROM Ruche)"; 
 		ResultSet rs_couvercle = stmt.executeQuery(S_couvercle);
-		System.out.println(rs_toit.getString("NumCouvercle"));
+		System.out.println(rs_couvercle.getString("NumCouvercle"));
 		Scanner sc_couvercle = new Scanner(System.in);
 		String str_couvercle = sc.nextLine();
 
@@ -107,9 +115,11 @@ public class tp {
 				    break;
 				} 
 				//Retenir les numéros de hausse correspondants
-				s_b = "Select c.NumHausse from Cadre c where c.NumCadre = " + numCadreRuche5.getString("c.NumCadre");
+                numCadreRuche5.next();
+                numCadreRuche3.next();
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre = " + numCadreRuche5.getString(1);
 				ResultSet numHausseCadre5 = stmt.executeQuery(s_b);
-				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString("c.NumHausse"); 
+				s_b = "Select c.NumHausse from Cadre c where c.NumCadre =" + numCadreRuche3.getString(1); 
 				ResultSet numHausseCadre3 = stmt.executeQuery(s_b);
 				//On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
 				s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' where c.NumHausse = NULL";
