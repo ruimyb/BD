@@ -679,6 +679,7 @@ insert into Cadre values ( 'mauvais', 0, 'couvain', 148, 120);
 insert into Cadre values ( 'moyen', 0, 'cire', 149, 120);
 insert into Cadre values ( 'bon', 0, 'pollen', 150, 120);
 
+
 /* Création de 10 essaims qui n'appartiennent à aucune ruche*/
 
 insert into Essaim values (1, 'rouge', 'Yaya', 23, NULL);
@@ -691,3 +692,28 @@ insert into Essaim values (7, 'jaune', 'Guillaume', 23, NULL);
 insert into Essaim values (8, 'jaune', 'Kwan', 23, NULL);
 insert into Essaim values (9, 'orange', 'Benji', 23, NULL);
 insert into Essaim values (10, 'orange', 'Guillaume', 23, NULL);
+
+
+/* Cadres disponibles */
+insert into Cadre values ( 'bon', 0, 'cire', 151, -1);
+insert into Cadre values ( 'bon', 0, 'couvain', 152, -1);
+insert into Cadre values ( 'mauvais', 44, 'miel', 153, -1);
+insert into Cadre values ( 'bon', 0, 'cire', 154, -1);
+insert into Cadre values ( 'moyen', 576, 'miel', 155, -1);
+insert into Cadre values ( 'bon', 432, 'miel', 156, -1);
+insert into Cadre values ( 'mauvais', 243, 'miel', 157, -1);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 158, -1);
+insert into Cadre values ( 'moyen', 0, 'cire', 159, -1);
+insert into Cadre values ( 'bon', 0, 'pollen', 160, -1);
+
+
+
+
+//Création d'une Ruche n°5
+insert into Ruche values(5,312,301,333,12); 
+insert into EstCorpsRuche values (5,101,'CorpsDeLaRuche'); 
+insert into EstCorpsRuche values (5,102,'CorpsDeLaRuche'); 
+insert into Ruche values(3,313,302,334,21);
+insert into EstCorpsRuche values (3,103,'CorpsDeLaRuche'); 
+insert into EstCorpsRuche values (3,104,'CorpsDeLaRuche'); 
+
