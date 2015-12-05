@@ -223,13 +223,13 @@ public class tp {
                         System.out.println("Voici la liste des cadres de la ruche 5 ayant pour contenu du couvain : \n");
                         CadreRuche5 = resSet.getInt(1);
                         HausseRuche5 = resSet.getInt(2);
-                        System.out.println(CadreRuche5 + "\n");
+                        System.out.println(CadreRuche5);
                         while (resSet.next()) {
-                            System.out.println(resSet.getInt(1) + "\n");
+                            System.out.println(resSet.getInt(1));
                         }
-                        System.out.println("\n\n");
+                        System.out.println("\n");
                     } else {
-                        System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5\n");
+                        System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5 :");
                         System.out.println("Abandons du transfert");
                         break;
                     }
@@ -246,9 +246,9 @@ public class tp {
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste des cadre cire de la Ruche 5 :");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
                     s_b = "Select distinct c.NumCadre, c.NumHausse " +
                             "from RUCHE r, Cadre c, EstCorpsRuche ECR " +
@@ -259,14 +259,14 @@ public class tp {
                             "and ECR.Type = 'CorpsDeLaRuche'";
                     resSet = stmt.executeQuery(s_b);
                     if (resSet.next()) {
-                        System.out.println("Voici la liste des cadre dont le contenu est Construit de la Ruche 3 :");
+                        System.out.println("Voici la liste des cadres dont le contenu est Construit de la Ruche 3 :");
                         CadreRuche3 = resSet.getInt(1);
                         HausseRuche3 = resSet.getInt(2);
-                        System.out.println(CadreRuche5 + "\n");
+                        System.out.println(CadreRuche3);
                         while (resSet.next()) {
-                            System.out.println(resSet.getInt(1) + "\n");
+                            System.out.println(resSet.getInt(1));
                         }
-                        System.out.println("\n\n");
+                        System.out.println("\n");
                     } else {
                         System.out.println("Il n'y a pas de cadre construit dans la Ruche 3 \n");
                         System.out.println("Abandons du transfert");
@@ -282,11 +282,11 @@ public class tp {
                             + "and ECR.Type = 'CorpsDeLaRuche'";
 
                     resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadre couvain de la Ruche 3 :");
+                    System.out.println("Voici la liste des cadres couvain de la Ruche 3 :");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
                     //On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
                     s_b = "Select distinct c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
@@ -298,7 +298,7 @@ public class tp {
                         while(resSet.next()){
                             System.out.println(resSet.getInt(1));
                         }
-                        System.out.println("\n\n");
+                        System.out.println("\n");
                     } else {
                         System.out.println("Il n'y a aucun cadre ciré disponible.\n");
                         System.out.println("Abandons du transfert");
@@ -312,18 +312,18 @@ public class tp {
                     System.out.println("***********ECHANGE***********");
                     System.out.println("*****************************");
                     System.out.println("*****************************");
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
                     s_b = "UPDATE Cadre SET NumHausse =" + HausseRuche3
                             + "WHERE NumCadre =" + CadreRuche5;
                     stmt.executeQuery(s_b);
                     //Eventuellement faire un affichage du corps de la Hausse de la Ruche 5 pour vérifier"
                     //On rend le cadre qui était dans la ruche 3 disponible
-                    s_b = "UPDATE Cadre SET NumHausse = NULL "
+                    s_b = "UPDATE Cadre SET NumHausse =NULL "
                             + "WHERE NumCadre =" + CadreRuche3;
                     stmt.executeQuery(s_b);
                     //On met le cadre ciré dans la bonne hausse.
-                    s_b = "Select UPDATE Cadre SET NumHausse = "
+                    s_b = "UPDATE Cadre SET NumHausse = "
                             + HausseRuche5
                             + "WHERE NumCadre ="
                             + CadreCire;
@@ -342,9 +342,9 @@ public class tp {
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste des cadres de la ruche 5 ayant pour contenu du couvain : \n");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
                     s_b = "Select distinct c.NumCadre, c.NumHausse"
                             + " from Ruche r, Cadre c, EstCorpsRuche ECR"
@@ -357,9 +357,9 @@ public class tp {
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste des cadre cire de la Ruche 5 :");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
 
                     s_b = "Select distinct c.NumCadre, c.NumHausse " +
@@ -371,11 +371,10 @@ public class tp {
                             "and ECR.Type = 'CorpsDeLaRuche'";
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste des cadre dont le contenu est Construit de la Ruche 3 :");
-                    System.out.println(CadreRuche5 + "\n");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
 
                     s_b = "Select distinct c.NumCadre, c.NumHausse"
@@ -389,9 +388,9 @@ public class tp {
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste des cadre dont le contenu est couvain de la Ruche 3 :");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1) + "\n");
+                        System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
 
                     s_b = "Select distinct c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
                     resSet = stmt.executeQuery(s_b);
@@ -399,7 +398,7 @@ public class tp {
                     while(resSet.next()){
                         System.out.println(resSet.getInt(1));
                     }
-                    System.out.println("\n\n");
+                    System.out.println("\n");
                     break;
                 case "c":
                     System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
