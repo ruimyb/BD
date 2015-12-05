@@ -257,6 +257,7 @@ public class tp {
 				+ HausseRuche5
 				+ "WHERE NumCadre ="
 				+ CadreCire;
+        stmt.executeQuery(s_b);
 		break;
 		case "c": 
 			System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
