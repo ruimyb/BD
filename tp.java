@@ -222,16 +222,18 @@ public class tp {
 			break;
 		} 
 		//On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
-		s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse = -1";
+		s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
 		ResultSet numCadreCireDispo = stmt.executeQuery(s_b);
 		if(!numCadreCireDispo.next()){
 			System.out.println("Il n'y a aucun cadre ciré disponible.\n"); 			
 			System.out.println("Abandons du transfert");
 			break; 
 		}
-		//Mise à jour du numéro de hausse du cadre à changer. 
+		//Mise à jour du numéro de hausse du cadre à changer.
+        if(numRuche3.next() && numRuche5.next()){ 
 		s_b = "UPDATE Cadre SET NumHausse =" + numRuche3.getInt("c.NumHausse") + 
 				"WHERE NumCadre =" + numRuche5.getInt("c.NumCadre");
+        }
 		stmt.executeQuery(s_b);
 		//Eventuellement faire un affichage du corps de la Hausse de la Ruche 5 pour vérifier"
 		//On rend le cadre qui était dans la ruche 3 disponible
@@ -239,7 +241,7 @@ public class tp {
 				+ "WHERE NumCadre =" + numRuche3.getInt("c.NumCadre");
 		stmt.executeQuery(s_b); 
 		//On met le cadre ciré dans la bonne hausse. 
-		s_b = "Select UPDATE Cadre SET NumHausse = "
+        s_b = "Select UPDATE Cadre SET NumHausse = "
 				+ numRuche5.getInt("c.NumHausse")
 				+ "WHERE NumCadre ="
 				+ numCadreCireDispo.getInt("c.NumCadre");
