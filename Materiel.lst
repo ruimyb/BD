@@ -695,16 +695,16 @@ insert into Essaim values (10, 'orange', 'Guillaume', 23, NULL);
 
 
 /* Cadres disponibles */
-insert into Cadre values ( 'bon', 0, 'cire', 151, -1);
-insert into Cadre values ( 'bon', 0, 'couvain', 152, -1);
-insert into Cadre values ( 'mauvais', 44, 'miel', 153, -1);
-insert into Cadre values ( 'bon', 0, 'cire', 154, -1);
-insert into Cadre values ( 'moyen', 576, 'miel', 155, -1);
-insert into Cadre values ( 'bon', 432, 'miel', 156, -1);
-insert into Cadre values ( 'mauvais', 243, 'miel', 157, -1);
-insert into Cadre values ( 'mauvais', 0, 'couvain', 158, -1);
-insert into Cadre values ( 'moyen', 0, 'cire', 159, -1);
-insert into Cadre values ( 'bon', 0, 'pollen', 160, -1);
+insert into Cadre values ( 'bon', 0, 'cire', 151, NULL);
+insert into Cadre values ( 'bon', 0, 'couvain', 152, NULL);
+insert into Cadre values ( 'mauvais', 44, 'miel', 153, NULL);
+insert into Cadre values ( 'bon', 0, 'cire', 154, NULL);
+insert into Cadre values ( 'moyen', 576, 'miel', 155, NULL);
+insert into Cadre values ( 'bon', 432, 'miel', 156, NULL);
+insert into Cadre values ( 'mauvais', 243, 'miel', 157, NULL);
+insert into Cadre values ( 'mauvais', 0, 'couvain', 158, NULL);
+insert into Cadre values ( 'moyen', 0, 'cire', 159, NULL);
+insert into Cadre values ( 'bon', 0, 'pollen', 160, NULL);
 
 
 
