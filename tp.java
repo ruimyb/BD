@@ -194,7 +194,8 @@ public class tp {
 
 		case "b": System.out.println("Vous avez choisi d'effectuer un transfert de cadre de couvain");
 		//Stockage des deux bons numéros de cadres attendus
-		String s_b = "Select c.NumCadre, c.NumHausse"
+        int CadreRuche5,CadreRuche3,HausseRuche5,HausseRuche3,CadreCire;
+		String s_b = "Select distinct c.NumCadre, c.NumHausse"
 				+ " from Ruche r, Cadre c, EstCorpsRuche ECR"
 				+ " where c.Contenu = 'couvain' "
 				+ "and c.NumHausse = ECR.NumHausse "
@@ -202,49 +203,60 @@ public class tp {
 				+ "and r.CodeRuche = 5 "
 				+ "and ECR.Type = 'CorpsDeLaRuche'";
 
-		ResultSet numRuche5 = stmt.executeQuery(s_b);
-		if(!numRuche5.next()){
+		ResultSet resSet = stmt.executeQuery(s_b);
+		if(resSet.next()){
+            CadreRuche5 = resSet.getInt(1);
+            HausseRuche5 = resSet.getInt(2);   
+        }
+        else{
 			System.out.println("Il n'y a pas de cadre en couvain dans le corps de la ruche 5\n");
 			System.out.println("Abandons du transfert");
 			break; 
 		}
-		s_b = "Select c.NumCadre, c.NumHausse " +		
+
+		s_b = "Select distinct c.NumCadre, c.NumHausse " +		
 				"from RUCHE r, Cadre c, EstCorpsRuche ECR " + 
 				"where c.Contenu = 'construit' "+
 				"and c.NumHausse = ECR.NumHausse "+ 
 				"and ECR.CodeRuche = r.CodeRuche "+
 				"and r.CodeRuche = 3 "+
 				"and ECR.Type = 'CorpsDeLaRuche'";
-		ResultSet numRuche3 = stmt.executeQuery(s_b);
-		if(!numRuche3.next()){
+		resSet = stmt.executeQuery(s_b);
+        if(resSet.next()){
+            CadreRuche3 = resSet.getInt(1); 
+            HausseRuche3 = resSet.getInt(2);
+        }
+        else{
 			System.out.println("Il n'y a pas de cadre construit dans la Ruche 3 \n"); 
 			System.out.println("Abandons du transfert");
 			break;
 		} 
 		//On cherche à cadre ciré potentiellement disponible pour le corps de la ruche 5
-		s_b = "Select c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
-		ResultSet numCadreCireDispo = stmt.executeQuery(s_b);
-		if(!numCadreCireDispo.next()){
+		s_b = "Select distinct c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
+		resSet = stmt.executeQuery(s_b);
+        if(resSet.next()){
+            CadreCire = resSet.getInt(1);
+        }
+        else{
 			System.out.println("Il n'y a aucun cadre ciré disponible.\n"); 			
 			System.out.println("Abandons du transfert");
 			break; 
 		}
 		//Mise à jour du numéro de hausse du cadre à changer.
-        if(numRuche3.next() && numRuche5.next()){ 
-		s_b = "UPDATE Cadre SET NumHausse =" + numRuche3.getInt("c.NumHausse") + 
-				"WHERE NumCadre =" + numRuche5.getInt("c.NumCadre");
-        }
+
+		s_b = "UPDATE Cadre SET NumHausse ="  + HausseRuche3
+            + "WHERE NumCadre =" + CadreRuche5;
 		stmt.executeQuery(s_b);
 		//Eventuellement faire un affichage du corps de la Hausse de la Ruche 5 pour vérifier"
 		//On rend le cadre qui était dans la ruche 3 disponible
 		s_b = "UPDATE Cadre SET NumHausse = NULL "
-				+ "WHERE NumCadre =" + numRuche3.getInt("c.NumCadre");
+				+ "WHERE NumCadre =" + CadreRuche3;
 		stmt.executeQuery(s_b); 
 		//On met le cadre ciré dans la bonne hausse. 
         s_b = "Select UPDATE Cadre SET NumHausse = "
-				+ numRuche5.getInt("c.NumHausse")
+				+ HausseRuche5
 				+ "WHERE NumCadre ="
-				+ numCadreCireDispo.getInt("c.NumCadre");
+				+ CadreCire;
 		break;
 		case "c": 
 			System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
