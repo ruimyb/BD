@@ -544,6 +544,16 @@ public class tp {
                     break;
                 case "d":
                     System.out.println("Vous avez choisi de calculer le poids moyen des cadres de hausses en fonction de la race des abeilles \n");
+                   // on test s'il y a bien des essaims dans les ruches
+                    String str_test_essaim = "SELECT Count(Race) From essaim e where coderuche is not null";
+                    ResultSet rs_test_essaim = stmt.executeQuery(str_test_essaim);
+                    int test_essaim = 0;
+                    if (rs_test_essaim.next()){
+                        test_essaim = rs_test_essaim.getInt("count(Race)");
+                    }
+                    if (test_essaim == 0){
+                        System.out.println("Il n'y a aucun essaim dans les ruches");
+                    }else{
                     System.out.println("Veuillez choisir la race de la reine parmi celles disponibles \n");
                     String str_afficher_race = "SELECT Race FROM Essaim e, Ruche r WHERE r.CodeRuche = e.CodeRuche";
                     ResultSet rs_afficher_race = stmt.executeQuery(str_afficher_race);
@@ -561,9 +571,20 @@ public class tp {
                     ResultSet rs_d = stmt.executeQuery(s_d);
                     while (rs_d.next())
                         System.out.println(rs_d.getString("AVG(PoidsCadre)"));
+                    }
                     break;
                 case "e":
                     System.out.println("Vous avez choisi de calculer le nombre de cadre de couvain pour une ruche donnée \n");
+                    // on vérifie qu'il y a bien des ruches
+                    String str_test_ruche = "SELECT Count(CodeRuche) From Ruche";
+                    int test_ruche = 0;
+                    ResultSet rs_test_ruche = stmt.executeQuery(str_test_ruche);
+                    if (rs_test_ruche.next()){
+                        test_ruche = rs_test_ruche.getInt("Count(CodeRuche)");
+                    }
+                    if(test_ruche == 0){
+                        System.out.println("Il n'y a pas de ruches, créez en une");
+                    }else{
                     System.out.println("Veuillez choisir le numero de la ruche \n");
                     String str_afficher_ruche = "SELECT CodeRuche FROM Ruche";
                     ResultSet rs_afficher_ruche = stmt.executeQuery(str_afficher_ruche);
@@ -581,6 +602,7 @@ public class tp {
                     ResultSet rs_e = stmt.executeQuery(s_e);
                     while (rs_e.next())
                         System.out.println(rs_e.getString("Count(NumCadre)"));
+                    }
                     break;
                 default:
                     System.out.println("Mauvais choix, recommencez");
