@@ -49,8 +49,47 @@ public class tp {
 
                 case "a":
                     System.out.println("Pour créer une ruche il faut : un toit, un plancher, un couvercle, plusieurs hausses\n");
-                    //System.out.println("Veuillez choisir un toit, un plancher et un couvercle parmi ceux disponibles:");
-                    
+                    //Avant de commencer on vérifie s'il y a du materiel disponible
+                    String str_test_toit ="SELECT COUNT(Numtoit) FROM Toit WHERE Numtoit in ((SELECT Numtoit from toit) minus (SELECT numtoit from ruche))";
+                    int test_toit = 0;
+                    ResultSet rs_test_toit = stmt.executeQuery(str_test_toit);
+                    if (rs_test_toit.next()) {
+                       test_toit = rs_test_toit.getInt("count(NumToit)");
+                    }
+                    String str_test_plancher ="SELECT COUNT(Numplancher) FROM plancher WHERE Numplancher in ((SELECT Numplancher from plancher) minus (SELECT numplancher from ruche))";
+                    int test_plancher = 0;
+                    ResultSet rs_test_plancher = stmt.executeQuery(str_test_plancher);
+                    if (rs_test_plancher.next()) {
+                       test_plancher = rs_test_plancher.getInt("count(Numplancher)");
+                    }
+                    String str_test_couvercle ="SELECT COUNT(Numcouvercle) FROM couvercle WHERE Numcouvercle in ((SELECT Numcouvercle from couvercle) minus (SELECT numcouvercle from ruche))";
+                    int test_couvercle = 0;
+                    ResultSet rs_test_couvercle = stmt.executeQuery(str_test_couvercle);
+                    if (rs_test_couvercle.next()) {
+                       test_couvercle = rs_test_couvercle.getInt("count(Numcouvercle)");
+                    }
+                    String str_nbHaussesTotal = "SELECT count(NumHausse) FROM Hausse";
+                    String str_nbHausseUtilise = "SELECT count(NumHausse) FROM EstCorpsRuche";
+                    ResultSet rs_nbHausseTotal = stmt.executeQuery(str_nbHaussesTotal);
+
+                    int nbHaussesTotal = 0;
+                    if (rs_nbHausseTotal.next()) {
+                        nbHaussesTotal = rs_nbHausseTotal.getInt("count(NumHausse)");
+                    }
+                    int nbHaussesUtilise = 0;
+                    ResultSet rs_nbHausseUtilise = stmt.executeQuery(str_nbHausseUtilise);
+                    if (rs_nbHausseUtilise.next()) {
+                        nbHaussesUtilise = rs_nbHausseUtilise.getInt("count(Numhausse)");
+                    }
+                    int nbHaussesDispo = nbHaussesTotal - nbHaussesUtilise;
+                    if ((nbHaussesDispo < 2) || (test_toit == 0) || (test_plancher == 0) || (test_couvercle == 0)){
+                    System.out.println("Il n'y a pas assez de materiel disponible");
+                    }else{
+
+
+
+
+                                       
                     //On s'occupe de la saisie du toit disponible que l'on veut utiliser
                     String S_toit = "(SELECT NumToit from Toit) MINUS (SELECT NumToit FROM Ruche)";
                     ResultSet rs_toit = stmt.executeQuery(S_toit);
@@ -67,6 +106,9 @@ public class tp {
                         System.out.println("Veuillez choisir un toit parmi ceux disponibles");
                         str_toit = sc_toit.nextLine();
                     }
+
+
+
 
                     
                     //On s'occupe de la saisie du plancher disponible
@@ -86,6 +128,9 @@ public class tp {
                     }
 
                     
+
+
+
                     //On s'occupe de la saisie du couvercle
                     String S_couvercle = "(SELECT NumCouvercle from Couvercle) MINUS (SELECT NumCouvercle FROM Ruche)";
                     ResultSet rs_couvercle = stmt.executeQuery(S_couvercle);
@@ -102,10 +147,20 @@ public class tp {
                         str_couvercle = sc_couvercle.nextLine();
                     }
                     
+
+
+
+
                     //on indique le poids souhaité pour la ruche
                     System.out.println("Veuillez indiquer le poids de votre ruche");
                     Scanner sc_poids = new Scanner(System.in);
                     String str_poids = sc_poids.nextLine();
+
+
+
+
+
+
 
                     //Récupération de CodeRuche, 1 s'il n'y pas de ruche
                     //+1 au Max(CodeRuche) s'il y a au moins une ruche
@@ -129,21 +184,13 @@ public class tp {
                     String S_Ruche = "INSERT INTO Ruche VALUES (" + max + "," + str_plancher + "," + str_couvercle + "," + str_toit + "," + str_poids + ")";
                     ResultSet rs_ruche = stmt.executeQuery(S_Ruche);
 
-                    //recuperation du nombre de hausses disponible
-                    String str_nbHaussesTotal = "SELECT count(NumHausse) FROM Hausse";
-                    String str_nbHausseUtilise = "SELECT count(NumHausse) FROM EstCorpsRuche";
-                    ResultSet rs_nbHausseTotal = stmt.executeQuery(str_nbHaussesTotal);
 
-                    int nbHaussesTotal = 0;
-                    if (rs_nbHausseTotal.next()) {
-                        nbHaussesTotal = rs_nbHausseTotal.getInt("count(NumHausse)");
-                    }
-                    int nbHaussesUtilise = 0;
-                    ResultSet rs_nbHausseUtilise = stmt.executeQuery(str_nbHausseUtilise);
-                    if (rs_nbHausseUtilise.next()) {
-                        nbHaussesUtilise = rs_nbHausseUtilise.getInt("count(Numhausse)");
-                    }
-                    int nbHaussesDispo = nbHaussesTotal - nbHaussesUtilise;
+
+
+
+
+                 
+                   
                     //insertion des hausses, vérifier que nb_hausse<nombre de hausses disponibles
                     System.out.println("Combien de hausses souhaitez vous ?");
                     Scanner sc_nb_hausses = new Scanner(System.in);
@@ -154,6 +201,13 @@ public class tp {
                         System.out.println(Kwan);
                         nb_hausses = Integer.parseInt(sc_nb_hausses.nextLine());
                     }
+                
+
+
+
+
+
+
                     //choix des hausses
                     System.out.println("Veuillez choisir vos hausses parmi celles disponibles");
                     String S_hausses = "select NumHausse, Couleur from Hausse where NumHausse IN((SELECT NumHausse from Hausse) MINUS (SELECT NumHausse FROM EstCorpsRuche))";
@@ -233,42 +287,29 @@ public class tp {
                             }
                             
 
+                
+
+
+
+
                             //on choisit le materiel
-                            /*String S_matiere = "SELECT DISTINCT MatiereMateriel FROM Materiel";
-                            ResultSet rs_matiere = stmt.executeQuery(S_matiere);
-                            LinkedList<String> listeMatiereDispo = new LinkedList<String>();
-                            while(rs_matiere.next()){
-                                System.out.println(rs_matiere.getString("MatiereMateriel"));
-                                listeMatiereDispo.add(rs_matiere.getString("MatiereMateriel"));
-                            }
-                            Scanner sc_matiere = new Scanner(System.in);
-                            String str_matiere = sc_matiere.nextLine();
-                            while (!listeMatiereDispo.contains(str_matiere)){
-                                System.out.println("Veuillez choisir une matiere parmi celles disponibles");
-                                str_matiere = sc_matiere.nextLine();
-                            }
-                            System.out.println(str_matiere);
-                            //on choisit le numero du materiel
-                            String S_materiel = "SELECT NumMateriel FROM Materiel WHERE MatiereMateriel = '" + str_matiere+ "'" ;
+                            String S_materiel = "SELECT NumMateriel FROM Materiel";
                             ResultSet rs_materiel = stmt.executeQuery(S_materiel);
-                            LinkedList<Integer> listeMaterielDispo = new LinkedList<Integer>();
-                            while(rs_materiel.next()){
-                                System.out.println(rs_materiel.getInt("NumMateriel"));
-                                listeMaterielDispo.add(rs_materiel.getInt("NumMateriel"));
+                            int choixMateriel = 0;
+                            if (rs_materiel.next()){
+                                choixMateriel = rs_materiel.getInt("NumMateriel");
                             }
-                            Scanner sc_materiel = new Scanner(System.in);
-                            String str_materiel = sc_materiel.nextLine();
-                            while (!listeMaterielDispo.contains(Integer.parseInt(str_materiel))){
-                                System.out.println("Veuillez choisir un materiel parmi ceux disponibles");
-                                str_materiel = sc_materiel.nextLine();
-                            }*/
+                            String cadre = "INSERT INTO Cadre VALUES ('" + str_etat + "'," + poids_cadre + ",'"+str_contenu +"'," + choixMateriel + "," + choix_hausse + ")";
+                            ResultSet rs_création_cadre = stmt.executeQuery(cadre);
                             
-                            /*System.out.println("Veuillez choisir un NumMateriel disponible");
-                            String cadre = "INSERT INTO Cadre VALUES ('" + str_etat + "'," + poids_cadre + ",'"+str_contenu +"'," + str_materiel + "," + choix_hausse + ")";
-                            ResultSet rs_création_cadre = stmt.executeQuery(cadre);*/
                         }
 
                     }
+                
+
+
+
+
                     //on place maintenant l'essaim 
 
                     String S_essaim = "SELECT CodeEssaim from Essaim WHERE CodeRuche IS NULL";
@@ -288,7 +329,7 @@ public class tp {
                     String S_insertion_essaim = "UPDATE Essaim set CodeRuche = " + max + "WHERE CodeEssaim = " + str_essaim;
                     ResultSet rs_insertion_essaim = stmt.executeQuery(S_insertion_essaim);
                     
-                    
+                    } 
                     
                     break;
 
@@ -504,7 +545,7 @@ public class tp {
                 case "d":
                     System.out.println("Vous avez choisi de calculer le poids moyen des cadres de hausses en fonction de la race des abeilles \n");
                     System.out.println("Veuillez choisir la race de la reine parmi celles disponibles \n");
-                    String str_afficher_race = "(SELECT Race FROM Essaim) MINUS (SELECT Race FROM Essaim e, Ruche r WHERE r.CodeRuche = e.CodeRuche)";
+                    String str_afficher_race = "SELECT Race FROM Essaim e, Ruche r WHERE r.CodeRuche = e.CodeRuche";
                     ResultSet rs_afficher_race = stmt.executeQuery(str_afficher_race);
                     LinkedList<String> listeRace = new LinkedList<String>();
                     while (rs_afficher_race.next()){
