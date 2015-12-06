@@ -465,74 +465,58 @@ public class tp {
 
 
 
-                    s_b = "Select distinct c.NumCadre, c.NumHausse"
+                    s_b = "Select distinct c.NumCadre, c.NumHausse, c.Contenu, r.CodeRuche"
                             + " from Ruche r, Cadre c, EstCorpsRuche ECR"
-                            + " where c.Contenu = 'couvain' "
+                            + " where (c.Contenu = 'couvain' "
                             + "and c.NumHausse = ECR.NumHausse "
                             + "and ECR.CodeRuche = r.CodeRuche "
                             + "and r.CodeRuche = 5 "
-                            + "and ECR.Type = 'CorpsDeLaRuche'";
-
-                    resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadres de la ruche 5 ayant pour contenu du couvain : \n");
-                    while (resSet.next()) {
-                        System.out.println(resSet.getInt(1));
-                    }
-                    System.out.println("\n");
-
-                    s_b = "Select distinct c.NumCadre, c.NumHausse"
-                            + " from Ruche r, Cadre c, EstCorpsRuche ECR"
-                            + " where c.Contenu = 'cire' "
+                            + "and ECR.Type = 'CorpsDeLaRuche') "
+                            + "OR ("
+                            + " c.Contenu = 'cire' "
                             + "and c.NumHausse = ECR.NumHausse "
                             + "and ECR.CodeRuche = r.CodeRuche "
                             + "and r.CodeRuche = 5 "
-                            + "and ECR.Type = 'CorpsDeLaRuche'";
-
-                    resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadre cire de la Ruche 5 :");
-                    while (resSet.next()) {
-                        System.out.println(resSet.getInt(1));
-                    }
-                    System.out.println("\n");
-
-
-                    s_b = "Select distinct c.NumCadre, c.NumHausse " +
-                            "from RUCHE r, Cadre c, EstCorpsRuche ECR " +
-                            "where c.Contenu = 'construit' " +
-                            "and c.NumHausse = ECR.NumHausse " +
-                            "and ECR.CodeRuche = r.CodeRuche " +
-                            "and r.CodeRuche = 3 " +
-                            "and ECR.Type = 'CorpsDeLaRuche'";
-                    resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadre dont le contenu est Construit de la Ruche 3 :");
-                    while (resSet.next()) {
-                        System.out.println(resSet.getInt(1));
-                    }
-                    System.out.println("\n");
-
-
-                    s_b = "Select distinct c.NumCadre, c.NumHausse"
-                            + " from Ruche r, Cadre c, EstCorpsRuche ECR"
-                            + " where c.Contenu = 'couvain' "
+                            + "and ECR.Type = 'CorpsDeLaRuche') "
+                            + "OR ("
+                            + "c.Contenu = 'construit' "
+                            + "and c.NumHausse = ECR.NumHausse " 
+                            + "and ECR.CodeRuche = r.CodeRuche " 
+                            + "and r.CodeRuche = 3 " 
+                            + "and ECR.Type = 'CorpsDeLaRuche') "
+                            + "OR ("
+                            + "c.Contenu = 'couvain' "
                             + "and c.NumHausse = ECR.NumHausse "
                             + "and ECR.CodeRuche = r.CodeRuche "
                             + "and r.CodeRuche = 3 "
-                            + "and ECR.Type = 'CorpsDeLaRuche'";
+                            + "and ECR.Type = 'CorpsDeLaRuche')";
 
                     resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadre dont le contenu est couvain de la Ruche 3 :");
+                    System.out.println("Voici la liste réactualisée \n");
                     while (resSet.next()) {
-                        System.out.println(resSet.getInt(1));
+                        System.out.println(
+                                "NumCadre : " 
+                                + resSet.getInt(1) 
+                                + " | " + "NumHausse : " 
+                                + resSet.getInt(2) 
+                                + " | " 
+                                         
+                                + "Contenu : " 
+                                + resSet.getString(3) 
+                                + " | " 
+                                + "CodeRuche : " 
+                                + resSet.getInt(4)
+                                );
                     }
-                    System.out.println("\n");
 
-                    s_b = "Select distinct c.NumCadre from Cadre c where c.Contenu = 'cire' and c.NumHausse is NULL";
-                    resSet = stmt.executeQuery(s_b);
-                    System.out.println("Voici la liste des cadres cire dispo :");
+                    s_b = "SELECT NumCadre, NumHausse, Contenu from Cadre where Contenu = 'cire' and NumHausse is NULL"; 
+                    resSet = stmt.executeQuery(s_b); 
                     while(resSet.next()){
-                        System.out.println(resSet.getInt(1));
-                    }
-                    System.out.println("\n");
+                        System.out.println("NumCadre : " + resSet.getInt(1) + " | " + "NumHausse : " + resSet.getInt(2) 
+                                + " | " + "Contenu : " + resSet.getString(3) + " | " +  "CodeRuche : 0");
+                    }   
+                    
+                    
                     break;
                 case "c":
                     System.out.println("Vous avez choisi de calculer le poids de la récolte totale \n");
