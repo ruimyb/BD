@@ -15,6 +15,7 @@ public class tp {
             String passwd = "Coucou";
 
             connection = DriverManager.getConnection(url, user, passwd);
+            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
         } catch (SQLException e) {
             System.err.println("FAILED");
             e.printStackTrace();
