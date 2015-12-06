@@ -465,31 +465,13 @@ public class tp {
 
 
 
-                    s_b = "Select distinct c.NumCadre, c.NumHausse, c.Contenu, r.CodeRuche"
-                            + " from Ruche r, Cadre c, EstCorpsRuche ECR"
-                            + " where (c.Contenu = 'couvain' "
-                            + "and c.NumHausse = ECR.NumHausse "
+                    s_b = "Select distinct c.NumCadre, c.NumHausse, c.Contenu, r.CodeRuche "
+                            + "from Ruche r, Cadre c, EstCorpsRuche ECR "
+                            + "where c.NumHausse = ECR.NumHausse "
                             + "and ECR.CodeRuche = r.CodeRuche "
-                            + "and r.CodeRuche = 5 "
-                            + "and ECR.Type = 'CorpsDeLaRuche') "
-                            + "OR ("
-                            + " c.Contenu = 'cire' "
-                            + "and c.NumHausse = ECR.NumHausse "
-                            + "and ECR.CodeRuche = r.CodeRuche "
-                            + "and r.CodeRuche = 5 "
-                            + "and ECR.Type = 'CorpsDeLaRuche') "
-                            + "OR ("
-                            + "c.Contenu = 'construit' "
-                            + "and c.NumHausse = ECR.NumHausse " 
-                            + "and ECR.CodeRuche = r.CodeRuche " 
-                            + "and r.CodeRuche = 3 " 
-                            + "and ECR.Type = 'CorpsDeLaRuche') "
-                            + "OR ("
-                            + "c.Contenu = 'couvain' "
-                            + "and c.NumHausse = ECR.NumHausse "
-                            + "and ECR.CodeRuche = r.CodeRuche "
-                            + "and r.CodeRuche = 3 "
-                            + "and ECR.Type = 'CorpsDeLaRuche')";
+                            + "and ECR.Type = 'CorpsDeLaRuche' "
+                            + "and ((r.CodeRuche = 5 and (c.Contenu = 'couvain' or c.Contenu = 'cire')) "
+                            + "or (r.CodeRuche = 3 and (c.Contenu = 'construit' or c.Contenu = 'couvain')))";
 
                     resSet = stmt.executeQuery(s_b);
                     System.out.println("Voici la liste réactualisée \n");
